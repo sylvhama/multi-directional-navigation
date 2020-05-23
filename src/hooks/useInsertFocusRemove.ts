@@ -7,7 +7,7 @@ import {
   useRemove
 } from "./";
 
-export const useInsertFocusRemove = () => {
+export const useInsertFocusRemove = (preventScroll = true) => {
   const isInserted = useIsInserted();
   const isFocused = useIsFocused();
   const upsertHtmlElement = useUpsertHtmlElement();
@@ -21,10 +21,10 @@ export const useInsertFocusRemove = () => {
   React.useEffect(() => {
     currentIdHTMLElements.forEach(({ id, htmlElement }) => {
       if (isFocused(id)) {
-        htmlElement.focus();
+        htmlElement.focus({ preventScroll });
       }
     });
-  }, [currentIdHTMLElements, isFocused]);
+  }, [currentIdHTMLElements, isFocused, preventScroll]);
 
   React.useEffect(() => {
     return () => {

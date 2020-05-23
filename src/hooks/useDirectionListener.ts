@@ -19,6 +19,7 @@ export const useDirectionListener = (
   throttleValue = 250,
   element?: Window | HTMLElement
 ) => {
+  const [repeat, setRepeat] = React.useState(false);
   const { elements, currentFocusedId } = useMultiDirectionContext();
   const focus = useFocus();
 
@@ -31,6 +32,8 @@ export const useDirectionListener = (
       }
 
       event.preventDefault();
+
+      setRepeat(event.repeat);
 
       const nextFocusId = findClosestNeighborId(
         Object.values(elements),
@@ -46,6 +49,8 @@ export const useDirectionListener = (
   );
 
   useKeydownListener(handler, element, throttleValue);
+
+  return repeat;
 };
 
 function getDirection(
@@ -79,7 +84,7 @@ function useKeydownListener(
   element: Window | HTMLElement = window,
   throttleValue: number
 ) {
-  const eventName = "keydown";
+  const keydown = "keydown";
   const savedHandler = React.useRef<Handler>();
 
   React.useEffect(() => {
@@ -93,10 +98,10 @@ function useKeydownListener(
       }
     }, throttleValue);
 
-    element.addEventListener(eventName, eventListener);
+    element.addEventListener(keydown, eventListener);
 
     return () => {
-      element.removeEventListener(eventName, eventListener);
+      element.removeEventListener(keydown, eventListener);
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 }

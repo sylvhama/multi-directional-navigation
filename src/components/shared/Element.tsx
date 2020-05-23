@@ -9,9 +9,9 @@ interface Props extends IsFocusedProps, React.HTMLAttributes<HTMLDivElement> {
   readonly children: React.ReactNode;
 }
 
-const Div = styled.div<IsFocusedProps>`
+const Article = styled.article<IsFocusedProps>`
   position: relative;
-  border: 5px solid transparent;
+  border: 5px solid #333;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@ const Div = styled.div<IsFocusedProps>`
 export const Element = React.forwardRef<HTMLDivElement, Props>(
   ({ children, isFocused, ...restProps }, ref) => {
     return (
-      <Div
+      <Article
         ref={ref}
         role="button"
         tabIndex={isFocused ? 0 : -1}
@@ -46,7 +46,7 @@ export const Element = React.forwardRef<HTMLDivElement, Props>(
         {...restProps}
       >
         {children}
-      </Div>
+      </Article>
     );
   }
 );

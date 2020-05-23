@@ -8,13 +8,21 @@ import {
   useIsFocused
 } from "../../hooks";
 
-const elements = new Array(8).fill(null).map((_, index) => {
+const elements = new Array(18).fill(null).map((_, index) => {
   const id = (index + 1).toString();
   return { id, toFocus: index === 0 };
 });
 
+const scrollIntoView = (target: HTMLElement, repeat: boolean) => {
+  target.scrollIntoView({
+    behavior: repeat ? "auto" : "smooth",
+    block: "center",
+    inline: "center"
+  });
+};
+
 export function List() {
-  useDirectionListener({});
+  const repeat = useDirectionListener({});
   const isFocused = useIsFocused();
   const insertFocus = useInsertFocusRemove();
 
@@ -25,7 +33,10 @@ export function List() {
           key={element.id}
           isFocused={isFocused(element.id)}
           ref={div => insertFocus(element.id, element.toFocus, div)}
-          onFocus={() => console.log(`You've focused element ${element.id}.`)}
+          onFocus={event => {
+            scrollIntoView(event.target, repeat);
+            console.log(`You've focused element ${element.id}.`);
+          }}
           onBlur={() => console.log(`You've blured element ${element.id}.`)}
         >
           {element.id}
