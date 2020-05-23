@@ -1,4 +1,5 @@
 import React from "react";
+import throttle from "lodash/throttle";
 
 import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
 import { findClosestNeighborId } from "../utils/findClosestNeighborId";
@@ -15,6 +16,7 @@ type Handler = (event: KeyboardEvent) => void;
 
 export const useDirectionListener = (
   { left = 37, top = 38, right = 39, bottom = 40 },
+  throttleValue = 250,
   element?: Window | HTMLElement
 ) => {
   const { elements, currentFocusedId } = useMultiDirectionContext();
@@ -43,7 +45,7 @@ export const useDirectionListener = (
     [left, top, right, bottom, focus, elements, currentFocusedId]
   );
 
-  useKeydownListener(handler, element);
+  useKeydownListener(handler, element, throttleValue);
 };
 
 function getDirection(
@@ -74,7 +76,8 @@ function isKeyboardEvent(event: Event): event is KeyboardEvent {
 // inspired from https://usehooks.com/useEventListener/
 function useKeydownListener(
   handler: Handler,
-  element: Window | HTMLElement = window
+  element: Window | HTMLElement = window,
+  throttleValue: number
 ) {
   const eventName = "keydown";
   const savedHandler = React.useRef<Handler>();
@@ -84,12 +87,11 @@ function useKeydownListener(
   }, [handler]);
 
   React.useEffect(() => {
-    const eventListener = (event: Event) => {
-      console.log(666);
+    const eventListener = throttle((event: Event) => {
       if (savedHandler.current && isKeyboardEvent(event)) {
         savedHandler.current(event);
       }
-    };
+    }, throttleValue);
 
     element.addEventListener(eventName, eventListener);
 
