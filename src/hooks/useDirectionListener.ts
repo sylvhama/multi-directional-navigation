@@ -1,9 +1,9 @@
 import React from "react";
-import throttle from "lodash/throttle";
 
 import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
 import { findClosestNeighborId } from "../utils/findClosestNeighborId";
 import { useFocus } from "./useFocus";
+import { useKeyboardListener, Handler } from "./useKeyboardListener";
 
 export enum Direction {
   Left = "Left",
@@ -11,8 +11,6 @@ export enum Direction {
   Right = "Right",
   Bottom = "Bottom"
 }
-
-type Handler = (event: KeyboardEvent) => void;
 
 export const useDirectionListener = (
   keys = { left: 37, top: 38, right: 39, bottom: 40 },
@@ -50,7 +48,7 @@ export const useDirectionListener = (
     [left, top, right, bottom, focus, elements, currentFocusedId]
   );
 
-  useKeydownListener(handler, element, throttleValue);
+  useKeyboardListener("keydown", handler, element, throttleValue);
 
   return repeat;
 };
@@ -74,36 +72,4 @@ function getDirection(
     default:
       return null;
   }
-}
-
-function isKeyboardEvent(event: Event): event is KeyboardEvent {
-  return "keyCode" in event;
-}
-
-// inspired from https://usehooks.com/useEventListener/
-function useKeydownListener(
-  handler: Handler,
-  element: Window | HTMLElement = window,
-  throttleValue: number
-) {
-  const keydown = "keydown";
-  const savedHandler = React.useRef<Handler>();
-
-  React.useEffect(() => {
-    savedHandler.current = handler;
-  }, [handler]);
-
-  React.useEffect(() => {
-    const eventListener = throttle((event: Event) => {
-      if (savedHandler.current && isKeyboardEvent(event)) {
-        savedHandler.current(event);
-      }
-    }, throttleValue);
-
-    element.addEventListener(keydown, eventListener);
-
-    return () => {
-      element.removeEventListener(keydown, eventListener);
-    };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 }

@@ -1,7 +1,7 @@
 {
   "name": "multi-directional-navigation",
   "version": "1.0.0",
-  "description": "Focus an element based on a direction input coming from the keyboard.",
+  "description": "Focus an element based on a direction input: ⇦ ⇧ ⇨ ⇩",
   "keywords": [],
   "main": "src/index.tsx",
   "author": "Sylvain Hamann",
@@ -25,10 +25,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }

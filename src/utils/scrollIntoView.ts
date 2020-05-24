@@ -1,11 +1,11 @@
 export const scrollIntoView = (
   target: HTMLElement,
-  forceAuto = false,
+  fastScroll = false,
   block: ScrollLogicalPosition = "center",
   inline: ScrollLogicalPosition = "center"
 ) => {
   target.scrollIntoView({
-    behavior: forceAuto ? "auto" : "smooth",
+    behavior: fastScroll ? "auto" : "smooth",
     block,
     inline
   });

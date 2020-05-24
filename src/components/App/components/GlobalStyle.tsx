@@ -18,12 +18,16 @@ export const GlobalStyle = createGlobalStyle`
     padding: 1rem;
   }
 
-  h1, footer {
+  header, footer {
     text-align: center
   }
 
   h1 {
     padding-bottom: 1rem;
+  }
+
+  p {
+    padding-bottom: 0.5rem;
   }
 
   h1, p {

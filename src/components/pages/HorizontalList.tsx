@@ -3,19 +3,31 @@ import { HorizontalGrid } from "../shared/HorizontalGrid";
 import { Card } from "../shared/Card";
 
 import {
+  useKeyboardListener,
   useDirectionListener,
   useInsertFocusRemove,
-  useIsFocused
+  useIsFocused,
+  useFocus
 } from "../../hooks";
 
 import { scrollIntoView, createElements } from "../../utils";
 
-const elements = createElements(8);
+const elements = createElements(20);
 
 export function HorizontalList() {
   const repeat = useDirectionListener();
   const isFocused = useIsFocused();
   const insertFocus = useInsertFocusRemove();
+  const focus = useFocus();
+
+  useKeyboardListener("keyup", ({ keyCode }) => {
+    switch (keyCode) {
+      case 35: // end
+        return focus(elements[elements.length - 1].id);
+      case 36: // home
+        return focus(elements[0].id);
+    }
+  });
 
   return (
     <HorizontalGrid>
