@@ -15,8 +15,8 @@ export function findClosestNeighborId(
         case Direction.Left:
           if (
             origin.left >= element.right &&
-            origin.top <= element.top &&
-            origin.bottom > element.top
+            origin.top <= element.bottom &&
+            origin.bottom >= element.top
           ) {
             if (!neighbor) {
               neighbor = element;
@@ -38,8 +38,8 @@ export function findClosestNeighborId(
         case Direction.Top:
           if (
             origin.top >= element.bottom &&
-            origin.left <= element.left &&
-            origin.right > element.left
+            origin.left <= element.right &&
+            origin.right >= element.left
           ) {
             if (!neighbor) {
               neighbor = element;
@@ -61,8 +61,8 @@ export function findClosestNeighborId(
         case Direction.Right:
           if (
             origin.right <= element.left &&
-            origin.top <= element.top &&
-            origin.bottom > element.top
+            origin.top <= element.bottom &&
+            origin.bottom >= element.top
           ) {
             if (!neighbor) {
               neighbor = element;
@@ -81,8 +81,8 @@ export function findClosestNeighborId(
         case Direction.Bottom:
           if (
             origin.bottom <= element.top &&
-            origin.left <= element.left &&
-            origin.right > element.left
+            origin.left <= element.right &&
+            origin.right >= element.left
           ) {
             if (!neighbor) {
               neighbor = element;
