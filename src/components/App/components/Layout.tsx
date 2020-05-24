@@ -5,5 +5,5 @@ export const Layout = styled.div`
   height: 100vh;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
 `;

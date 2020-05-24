@@ -15,7 +15,8 @@ export enum Direction {
 export const useDirectionListener = (
   keys = { left: 37, top: 38, right: 39, bottom: 40 },
   throttleValue = 150,
-  element?: Window | HTMLElement
+  element?: Window | HTMLElement,
+  findDestination = findClosestNeighborId
 ) => {
   const [repeat, setRepeat] = React.useState(false);
   const { elements, currentFocusedId } = useMultiDirectionContext();
@@ -28,14 +29,14 @@ export const useDirectionListener = (
       const direction = getDirection(event.keyCode, left, top, right, bottom);
 
       if (!direction) {
-        return;
+        return setRepeat(false);
       }
 
       event.preventDefault();
 
       setRepeat(event.repeat);
 
-      const nextFocusId = findClosestNeighborId(
+      const nextFocusId = findDestination(
         Object.values(elements),
         direction,
         elements[currentFocusedId || ""]
@@ -45,7 +46,16 @@ export const useDirectionListener = (
         focus(nextFocusId);
       }
     },
-    [left, top, right, bottom, focus, elements, currentFocusedId]
+    [
+      left,
+      top,
+      right,
+      bottom,
+      focus,
+      elements,
+      currentFocusedId,
+      findDestination
+    ]
   );
 
   useKeyboardListener("keydown", handler, element, throttleValue);

@@ -3,14 +3,17 @@ import {
   useIsInserted,
   useIsFocused,
   useUpsertHtmlElement,
+  useUpsert,
   useFocus,
   useRemove
 } from "./";
+import { Position } from "../contexts/types";
 
 export const useInsertFocusRemove = (preventScroll = true) => {
   const isInserted = useIsInserted();
   const isFocused = useIsFocused();
   const upsertHtmlElement = useUpsertHtmlElement();
+  const upsert = useUpsert();
   const focus = useFocus();
   const remove = useRemove();
 
@@ -34,10 +37,20 @@ export const useInsertFocusRemove = (preventScroll = true) => {
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return (id: string, toFocus: boolean, htmlElement: HTMLElement | null) => {
+  return (
+    id: string,
+    toFocus: boolean,
+    htmlElement: HTMLElement | null,
+    customPosition?: Position,
+    depth = 0
+  ) => {
     if (!isInserted(id) && htmlElement) {
       currentIdHTMLElements.push({ id, htmlElement });
-      upsertHtmlElement(id, htmlElement);
+      if (customPosition) {
+        upsert({ id, depth, ...customPosition });
+      } else {
+        upsertHtmlElement(id, htmlElement, depth);
+      }
       if (toFocus) focus(id);
     }
   };

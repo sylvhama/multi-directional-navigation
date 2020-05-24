@@ -1,11 +1,14 @@
-export type Element = {
-  id: string;
+export interface Position {
   left: number;
   right: number;
   top: number;
   bottom: number;
+}
+
+export interface Element extends Position {
+  id: string;
   depth: number;
-};
+}
 
 export interface State {
   elements: { [key: string]: Element };

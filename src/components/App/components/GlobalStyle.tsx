@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   header, nav, main, footer {
-    padding: 1rem;
+    padding: 0 1rem;
   }
 
   header, footer {
@@ -26,8 +26,8 @@ export const GlobalStyle = createGlobalStyle`
     padding-bottom: 1rem;
   }
 
-  p {
-    padding-bottom: 0.5rem;
+  p + p {
+    padding-top: 0.5rem;
   }
 
   h1, p {

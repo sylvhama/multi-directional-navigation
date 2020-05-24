@@ -31,11 +31,18 @@ export function HorizontalList() {
 
   return (
     <HorizontalGrid>
-      {elements.map(element => (
+      {elements.map((element, index) => (
         <Card
           key={element.id}
           isFocused={isFocused(element.id)}
-          ref={div => insertFocus(element.id, element.toFocus, div)}
+          ref={div =>
+            insertFocus(
+              element.id,
+              element.toFocus,
+              div,
+              createCustomPositon(index)
+            )
+          }
           onFocus={event => {
             scrollIntoView(event.target, repeat);
             console.log(`You've focused element ${element.id}.`);
@@ -47,4 +54,14 @@ export function HorizontalList() {
       ))}
     </HorizontalGrid>
   );
+}
+
+function createCustomPositon(index: number) {
+  const size = 10;
+  return {
+    left: index + size * index,
+    right: index + size * (index + 1),
+    top: 300,
+    bottom: 300 + size
+  };
 }
