@@ -1,7 +1,7 @@
 import React from "react";
 import {
   useIsInserted,
-  useIsFocused,
+  useCurrentFocusedId,
   useUpsertHtmlElement,
   useUpsert,
   useFocus,
@@ -11,7 +11,7 @@ import { Position } from "../contexts/types";
 
 export const useInsertFocusRemove = (preventScroll = true) => {
   const isInserted = useIsInserted();
-  const isFocused = useIsFocused();
+  const currentFocusedId = useCurrentFocusedId();
   const upsertHtmlElement = useUpsertHtmlElement();
   const upsert = useUpsert();
   const focus = useFocus();
@@ -23,11 +23,11 @@ export const useInsertFocusRemove = (preventScroll = true) => {
 
   React.useEffect(() => {
     currentIdHTMLElements.forEach(({ id, htmlElement }) => {
-      if (isFocused(id)) {
+      if (id === currentFocusedId) {
         htmlElement.focus({ preventScroll });
       }
     });
-  }, [currentIdHTMLElements, isFocused, preventScroll]);
+  }, [currentIdHTMLElements, currentFocusedId, preventScroll]);
 
   React.useEffect(() => {
     return () => {

@@ -5,7 +5,8 @@ import { Square } from "../shared/Square";
 import {
   useDirectionListener,
   useInsertFocusRemove,
-  useIsFocused
+  useCurrentFocusedId,
+  usePrevious
 } from "../../hooks";
 
 import { scrollIntoView, createElements } from "../../utils";
@@ -14,7 +15,8 @@ const elements = createElements(14);
 
 export function VerticalList() {
   const repeat = useDirectionListener();
-  const isFocused = useIsFocused();
+  const currentFocusedId = useCurrentFocusedId();
+  const previousFocusedId = usePrevious(currentFocusedId);
   const insertFocus = useInsertFocusRemove();
 
   return (
@@ -22,7 +24,8 @@ export function VerticalList() {
       {elements.map(element => (
         <Square
           key={element.id}
-          isFocused={isFocused(element.id)}
+          isFocused={currentFocusedId === element.id}
+          isPreviousFocus={previousFocusedId === element.id}
           ref={div => insertFocus(element.id, element.toFocus, div)}
           onFocus={event => {
             scrollIntoView(event.target, repeat);

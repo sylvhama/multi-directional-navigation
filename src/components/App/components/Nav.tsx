@@ -20,7 +20,7 @@ const StyledNavLink = styled(NavLink)`
 
 export function Nav() {
   return (
-    <nav>
+    <nav tabIndex={-1} onFocus={() => console.log(666)}>
       <List>
         <li>
           <StyledNavLink exact to="/">

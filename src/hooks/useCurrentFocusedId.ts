@@ -1,6 +1,6 @@
 import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
 
-export const useIsFocused = () => {
+export const useCurrentFocusedId = () => {
   const { currentFocusedId } = useMultiDirectionContext();
-  return (id: string) => currentFocusedId === id;
+  return currentFocusedId;
 };

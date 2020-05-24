@@ -1,9 +1,10 @@
 export interface IsFocusedProps {
-  readonly isFocused: boolean;
+  isFocused?: boolean;
+  isPreviousFocus?: boolean;
 }
 
 export interface Props
   extends IsFocusedProps,
     React.HTMLAttributes<HTMLDivElement> {
-  readonly children: React.ReactNode;
+  children: React.ReactNode;
 }

@@ -13,12 +13,11 @@ const StyledBase = styled(Base)`
 `;
 
 export const Square = React.forwardRef<HTMLDivElement, Props>(
-  ({ children, isFocused, ...restProps }, ref) => {
+  ({ children, isFocused, isPreviousFocus, ...restProps }, ref) => {
     return (
       <StyledBase
         ref={ref}
-        role="button"
-        tabIndex={isFocused ? 0 : -1}
+        tabIndex={isFocused ? 0 : isPreviousFocus ? -1 : undefined}
         isFocused={isFocused}
         {...restProps}
       >

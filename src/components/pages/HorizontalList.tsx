@@ -6,8 +6,9 @@ import {
   useKeyboardListener,
   useDirectionListener,
   useInsertFocusRemove,
-  useIsFocused,
-  useFocus
+  useCurrentFocusedId,
+  useFocus,
+  usePrevious
 } from "../../hooks";
 
 import { scrollIntoView, createElements } from "../../utils";
@@ -16,7 +17,8 @@ const elements = createElements(20);
 
 export function HorizontalList() {
   const repeat = useDirectionListener();
-  const isFocused = useIsFocused();
+  const currentFocusedId = useCurrentFocusedId();
+  const previousFocusedId = usePrevious(currentFocusedId);
   const insertFocus = useInsertFocusRemove();
   const focus = useFocus();
 
@@ -34,7 +36,8 @@ export function HorizontalList() {
       {elements.map((element, index) => (
         <Card
           key={element.id}
-          isFocused={isFocused(element.id)}
+          isFocused={currentFocusedId === element.id}
+          isPreviousFocus={previousFocusedId === element.id}
           ref={div =>
             insertFocus(
               element.id,
@@ -61,7 +64,7 @@ function createCustomPositon(index: number) {
   return {
     left: index + size * index,
     right: index + size * (index + 1),
-    top: 300,
-    bottom: 300 + size
+    top: 100,
+    bottom: 100 + size
   };
 }
