@@ -1,7 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { List } from "../../pages/List";
+import { VerticalList } from "../../pages/VerticalList";
+import { HorizontalList } from "../../pages/HorizontalList";
 
 import { MultiDirectionProvider } from "../../../contexts/MultiDirection";
 
@@ -10,8 +11,11 @@ export function Main() {
     <main style={{ overflow: "hidden" }}>
       <MultiDirectionProvider>
         <Switch>
-          <Route path="/">
-            <List />
+          <Route path="/horizontal-list">
+            <HorizontalList />
+          </Route>
+          <Route>
+            <VerticalList />
           </Route>
         </Switch>
       </MultiDirectionProvider>

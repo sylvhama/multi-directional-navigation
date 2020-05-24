@@ -15,13 +15,15 @@ export enum Direction {
 type Handler = (event: KeyboardEvent) => void;
 
 export const useDirectionListener = (
-  { left = 37, top = 38, right = 39, bottom = 40 },
-  throttleValue = 250,
+  keys = { left: 37, top: 38, right: 39, bottom: 40 },
+  throttleValue = 150,
   element?: Window | HTMLElement
 ) => {
   const [repeat, setRepeat] = React.useState(false);
   const { elements, currentFocusedId } = useMultiDirectionContext();
   const focus = useFocus();
+
+  const { left, top, right, bottom } = keys;
 
   const handler: Handler = React.useCallback(
     event => {

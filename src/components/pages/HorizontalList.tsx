@@ -1,6 +1,6 @@
 import React from "react";
-import { Wrapper } from "../shared/Wrapper";
-import { Element } from "../shared/Element";
+import { HorizontalGrid } from "../shared/HorizontalGrid";
+import { Card } from "../shared/Card";
 
 import {
   useDirectionListener,
@@ -8,28 +8,19 @@ import {
   useIsFocused
 } from "../../hooks";
 
-const elements = new Array(18).fill(null).map((_, index) => {
-  const id = (index + 1).toString();
-  return { id, toFocus: index === 0 };
-});
+import { scrollIntoView, createElements } from "../../utils";
 
-const scrollIntoView = (target: HTMLElement, repeat: boolean) => {
-  target.scrollIntoView({
-    behavior: repeat ? "auto" : "smooth",
-    block: "center",
-    inline: "center"
-  });
-};
+const elements = createElements(8);
 
-export function List() {
-  const repeat = useDirectionListener({});
+export function HorizontalList() {
+  const repeat = useDirectionListener();
   const isFocused = useIsFocused();
   const insertFocus = useInsertFocusRemove();
 
   return (
-    <Wrapper rows={Math.ceil(elements.length / 3)}>
+    <HorizontalGrid>
       {elements.map(element => (
-        <Element
+        <Card
           key={element.id}
           isFocused={isFocused(element.id)}
           ref={div => insertFocus(element.id, element.toFocus, div)}
@@ -40,8 +31,8 @@ export function List() {
           onBlur={() => console.log(`You've blured element ${element.id}.`)}
         >
           {element.id}
-        </Element>
+        </Card>
       ))}
-    </Wrapper>
+    </HorizontalGrid>
   );
 }

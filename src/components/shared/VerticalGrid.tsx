@@ -19,6 +19,6 @@ const Section = styled.section<RowProps>`
   overflow: hidden;
 `;
 
-export function Wrapper({ children, rows }: Props) {
+export function VerticalGrid({ children, rows }: Props) {
   return <Section rows={rows}>{children}</Section>;
 }
