@@ -44,8 +44,6 @@ export function Footer() {
   const getTabIndex = useTabindex();
   const lastFocusedIdOutsideFooter = useRememberFocusedId([id]);
 
-  console.log();
-
   return (
     <footer>
       <p style={{ paddingBottom: "1.5rem" }}>
