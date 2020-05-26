@@ -2,34 +2,121 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+import {
+  useInsertFocusRemove,
+  useCurrentFocusedId,
+  useFocus,
+  useTabindex,
+  useRememberFocusedId
+} from "../../../hooks";
+
+import { IsFocusedProps } from "../../shared/types";
+
 const List = styled.ul`
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
   text-align: center;
 `;
 
-const StyledNavLink = styled(NavLink)`
+const StyledNavLink = styled(NavLink)<IsFocusedProps>`
+  position: relative;
   text-decoration: none;
   color: #aaa;
+  outline: 0;
+
   &.active {
     color: #f1f1f1;
     font-weight: bold;
   }
+
+  ${({ isFocused }) =>
+    isFocused &&
+    `
+      &::before{
+        position: absolute;
+        top: 50%;
+        left: -2rem;
+        content: '☞';
+        margin-top: -1.2rem;
+        font-size: 2rem;
+        color: white;
+      }
+    `}
 `;
 
+enum IDs {
+  Nav = "Nav",
+  VerticalList = "VerticalList",
+  HorizontalList = "HorizontalList",
+  Modal = "Modal"
+}
+
 export function Nav() {
+  const currentFocusedId = useCurrentFocusedId();
+  const insertFocus = useInsertFocusRemove();
+  const focus = useFocus();
+  const getTabIndex = useTabindex();
+  const lastFocusedIdOutsideNav = useRememberFocusedId(Object.keys(IDs));
+
   return (
-    <nav tabIndex={-1} onFocus={() => console.log(666)}>
+    <nav
+      tabIndex={getTabIndex(IDs.Nav)}
+      ref={nav =>
+        insertFocus(IDs.Nav, false, nav, {
+          top: 0,
+          bottom: 0,
+          left: -Infinity,
+          right: Infinity
+        })
+      }
+      onFocus={() => {
+        if (currentFocusedId && currentFocusedId === IDs.Nav)
+          focus(IDs.VerticalList);
+      }}
+      onKeyDown={event => {
+        if (lastFocusedIdOutsideNav && event.keyCode === 40)
+          focus(lastFocusedIdOutsideNav);
+      }}
+    >
       <List>
         <li>
-          <StyledNavLink exact to="/">
+          <StyledNavLink
+            exact
+            to="/"
+            isFocused={currentFocusedId === IDs.VerticalList}
+            tabIndex={getTabIndex(IDs.VerticalList)}
+            ref={(navLink: HTMLElement | null) =>
+              insertFocus(IDs.VerticalList, false, navLink, undefined, -1)
+            }
+          >
             Vertical list
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink exact to="/horizontal-list">
+          <StyledNavLink
+            exact
+            to="/horizontal-list"
+            isFocused={currentFocusedId === IDs.HorizontalList}
+            tabIndex={getTabIndex(IDs.HorizontalList)}
+            ref={(navLink: HTMLElement | null) =>
+              insertFocus(IDs.HorizontalList, false, navLink, undefined, -1)
+            }
+          >
             Horizontal list
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink
+            exact
+            to="/modal"
+            isFocused={currentFocusedId === IDs.Modal}
+            tabIndex={getTabIndex(IDs.Modal)}
+            ref={(navLink: HTMLElement | null) =>
+              insertFocus(IDs.Modal, false, navLink, undefined, -1)
+            }
+          >
+            Modal
           </StyledNavLink>
         </li>
       </List>

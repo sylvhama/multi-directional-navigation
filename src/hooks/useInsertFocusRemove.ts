@@ -9,7 +9,7 @@ import {
 } from "./";
 import { Position } from "../contexts/types";
 
-export const useInsertFocusRemove = (preventScroll = true) => {
+export function useInsertFocusRemove(preventScroll = true) {
   const isInserted = useIsInserted();
   const currentFocusedId = useCurrentFocusedId();
   const upsertHtmlElement = useUpsertHtmlElement();
@@ -54,4 +54,4 @@ export const useInsertFocusRemove = (preventScroll = true) => {
       if (toFocus) focus(id);
     }
   };
-};
+}

@@ -3,21 +3,23 @@ import { VerticalGrid } from "../shared/VerticalGrid";
 import { Square } from "../shared/Square";
 
 import {
-  useDirectionListener,
   useInsertFocusRemove,
   useCurrentFocusedId,
-  usePrevious
+  useTabindex
 } from "../../hooks";
 
 import { scrollIntoView, createElements } from "../../utils";
 
 const elements = createElements(14);
 
-export function VerticalList() {
-  const repeat = useDirectionListener();
+type Props = {
+  isKeyPressed: boolean;
+};
+
+export function VerticalList({ isKeyPressed }: Props) {
   const currentFocusedId = useCurrentFocusedId();
-  const previousFocusedId = usePrevious(currentFocusedId);
   const insertFocus = useInsertFocusRemove();
+  const getTabIndex = useTabindex();
 
   return (
     <VerticalGrid rows={Math.ceil(elements.length / 3)}>
@@ -25,10 +27,10 @@ export function VerticalList() {
         <Square
           key={element.id}
           isFocused={currentFocusedId === element.id}
-          isPreviousFocus={previousFocusedId === element.id}
+          tabIndex={getTabIndex(element.id)}
           ref={div => insertFocus(element.id, element.toFocus, div)}
           onFocus={event => {
-            scrollIntoView(event.target, repeat);
+            scrollIntoView(event.target, isKeyPressed);
             console.log(`You've focused element ${element.id}.`);
           }}
           onBlur={() => console.log(`You've blured element ${element.id}.`)}

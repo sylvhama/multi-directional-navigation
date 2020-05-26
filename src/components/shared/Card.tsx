@@ -26,14 +26,9 @@ const StyledBase = styled(Base)`
 `;
 
 export const Card = React.forwardRef<HTMLDivElement, Props>(
-  ({ children, isFocused, isPreviousFocus, ...restProps }, ref) => {
+  ({ children, isFocused, ...restProps }, ref) => {
     return (
-      <StyledBase
-        ref={ref}
-        tabIndex={isFocused ? 0 : isPreviousFocus ? -1 : undefined}
-        isFocused={isFocused}
-        {...restProps}
-      >
+      <StyledBase ref={ref} isFocused={isFocused} {...restProps}>
         {children}
       </StyledBase>
     );

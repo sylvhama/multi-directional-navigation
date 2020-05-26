@@ -1,6 +1,5 @@
 export interface IsFocusedProps {
   isFocused?: boolean;
-  isPreviousFocus?: boolean;
 }
 
 export interface Props

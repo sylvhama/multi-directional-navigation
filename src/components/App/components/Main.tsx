@@ -4,15 +4,19 @@ import { Switch, Route } from "react-router-dom";
 import { VerticalList } from "../../pages/VerticalList";
 import { HorizontalList } from "../../pages/HorizontalList";
 
+import { useDirectionListener } from "../../../hooks";
+
 export function Main() {
+  const isKeyPressed = useDirectionListener();
+
   return (
     <main style={{ overflow: "hidden" }}>
       <Switch>
         <Route path="/horizontal-list">
-          <HorizontalList />
+          <HorizontalList isKeyPressed={isKeyPressed} />
         </Route>
         <Route>
-          <VerticalList />
+          <VerticalList isKeyPressed={isKeyPressed} />
         </Route>
       </Switch>
     </main>

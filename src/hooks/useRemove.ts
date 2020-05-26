@@ -1,6 +1,6 @@
 import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
 
-export const useRemove = () => {
+export function useRemove() {
   const { remove } = useMultiDirectionContext();
   return (id: string) => remove(id);
-};
+}

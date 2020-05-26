@@ -4,23 +4,25 @@ import { Card } from "../shared/Card";
 
 import {
   useKeyboardListener,
-  useDirectionListener,
   useInsertFocusRemove,
   useCurrentFocusedId,
   useFocus,
-  usePrevious
+  useTabindex
 } from "../../hooks";
 
 import { scrollIntoView, createElements } from "../../utils";
 
 const elements = createElements(20);
 
-export function HorizontalList() {
-  const repeat = useDirectionListener();
+type Props = {
+  isKeyPressed: boolean;
+};
+
+export function HorizontalList({ isKeyPressed }: Props) {
   const currentFocusedId = useCurrentFocusedId();
-  const previousFocusedId = usePrevious(currentFocusedId);
   const insertFocus = useInsertFocusRemove();
   const focus = useFocus();
+  const getTabIndex = useTabindex();
 
   useKeyboardListener("keyup", ({ keyCode }) => {
     switch (keyCode) {
@@ -37,7 +39,7 @@ export function HorizontalList() {
         <Card
           key={element.id}
           isFocused={currentFocusedId === element.id}
-          isPreviousFocus={previousFocusedId === element.id}
+          tabIndex={getTabIndex(element.id)}
           ref={div =>
             insertFocus(
               element.id,
@@ -47,7 +49,7 @@ export function HorizontalList() {
             )
           }
           onFocus={event => {
-            scrollIntoView(event.target, repeat);
+            scrollIntoView(event.target, isKeyPressed);
             console.log(`You've focused element ${element.id}.`);
           }}
           onBlur={() => console.log(`You've blured element ${element.id}.`)}

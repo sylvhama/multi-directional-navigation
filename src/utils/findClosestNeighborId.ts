@@ -10,7 +10,7 @@ export function findClosestNeighborId(
 
   let neighbor: Element | undefined;
   elements.forEach(element => {
-    if (element.id !== origin.id) {
+    if (origin.id !== element.id && origin.depth === element.depth) {
       switch (direction) {
         case Direction.Left:
           if (

@@ -10,7 +10,6 @@ export const Base = styled.article<IsFocusedProps>`
   font-size: 4rem;
   background-color: #dfe3e8;
   color: #212b36;
-  outline: none;
 
   ${({ isFocused }) =>
     isFocused &&
