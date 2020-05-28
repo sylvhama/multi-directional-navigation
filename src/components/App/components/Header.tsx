@@ -1,11 +1,19 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 export function Header() {
   return (
     <header>
       <h1>Multi-directional Navigation</h1>
       <p>Focus an element based on a direction input: ⇦ ⇧ ⇨ ⇩</p>
+      <Switch>
+        <Route path="/modal" />
+        <Route
+          render={() => (
+            <p>Check the console logs to see focus and blur events.</p>
+          )}
+        />
+      </Switch>
       <Route
         path="/horizontal-list"
         render={() => (
@@ -14,7 +22,6 @@ export function Header() {
           </p>
         )}
       />
-      <p>Check the console logs to see focus and blur events.</p>
     </header>
   );
 }

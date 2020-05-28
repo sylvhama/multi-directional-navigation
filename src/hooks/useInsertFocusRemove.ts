@@ -39,7 +39,7 @@ export function useInsertFocusRemove(preventScroll = true) {
 
   return (
     id: string,
-    toFocus: boolean,
+    toFocus = false,
     htmlElement: HTMLElement | null,
     customPosition?: Position,
     depth = 0
