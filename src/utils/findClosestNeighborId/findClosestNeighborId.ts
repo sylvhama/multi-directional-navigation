@@ -1,12 +1,12 @@
-import { Element } from "../contexts/types";
-import { Direction } from "../hooks";
+import { Element } from "../../contexts/types";
+import { Direction } from "../../hooks";
 
 export function findClosestNeighborId(
   elements: Element[],
   direction: Direction,
   origin?: Element
 ) {
-  if (!origin) return;
+  if (!origin) return null;
 
   let neighbor: Element | undefined;
   elements.forEach(element => {
