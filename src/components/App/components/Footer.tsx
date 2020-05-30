@@ -26,11 +26,12 @@ const Anchor = styled.a<IsFocusedProps>`
       &::before{
         position: absolute;
         top: 50%;
-        right: -2rem;
-        content: '👨‍💻';
-        margin-top: -1.2rem;
-        font-size: 2rem;
+        left: -1.5rem;
+        content: '🔗';
+        margin-top: -0.5rem;
+        font-size: 1rem;
         color: white;
+        line-height: 1;
       }
     `}
 `;
@@ -47,7 +48,6 @@ export function Footer() {
   return (
     <footer>
       <p style={{ paddingBottom: "1.5rem" }}>
-        Made by{" "}
         <Anchor
           isFocused={currentFocusedId === id}
           tabIndex={getTabIndex(id)}
@@ -59,7 +59,7 @@ export function Footer() {
               right: Infinity
             })
           }
-          href="https://shamann.dev"
+          href="https://github.com/sylvhama/multi-directional-navigation"
           onKeyDown={event => {
             if (lastFocusedIdOutsideFooter && event.keyCode === 38) {
               event.stopPropagation();
@@ -67,7 +67,7 @@ export function Footer() {
             }
           }}
         >
-          Sylvain Hamann
+          Source code
         </Anchor>
       </p>
     </footer>

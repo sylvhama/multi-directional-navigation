@@ -35,9 +35,10 @@ const StyledNavLink = styled(NavLink)<IsFocusedProps>`
     top: 50%;
     left: -2rem;
     content: "☞";
-    margin-top: -1.2rem;
+    margin-top: -1rem;
     font-size: 2rem;
     color: white;
+    line-height: 1;
   }
 `;
 
