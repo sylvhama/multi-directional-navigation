@@ -1,4 +1,4 @@
-import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
+import { useMultiDirectionContext } from "../";
 
 export function useFocus() {
   const { focus } = useMultiDirectionContext();

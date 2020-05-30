@@ -6,8 +6,8 @@ import {
   useUpsert,
   useFocus,
   useRemove
-} from "./";
-import { Position } from "../contexts/types";
+} from "../";
+import { Position } from "../../../contexts/MultiDirection/types";
 
 export function useInsertFocusRemove(preventScroll = true) {
   const isInserted = useIsInserted();

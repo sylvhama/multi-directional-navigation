@@ -1,5 +1,5 @@
-import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
-import { Element } from "../contexts/types";
+import { Element } from "../../../contexts/MultiDirection/types";
+import { useMultiDirectionContext } from "../";
 
 export function useUpsert() {
   const { upsert } = useMultiDirectionContext();

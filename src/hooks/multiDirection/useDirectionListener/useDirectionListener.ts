@@ -1,9 +1,11 @@
 import React from "react";
 
-import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
-import { findClosestNeighborId } from "../utils/findClosestNeighborId";
-import { useFocus } from "./useFocus";
-import { useKeyboardListener, Handler } from "./useKeyboardListener";
+import { findClosestNeighborId } from "../../../utils/findClosestNeighborId";
+import {
+  useKeyboardListener,
+  Handler
+} from "../../general/useKeyboardListener";
+import { useMultiDirectionContext, useFocus } from "../";
 
 export enum Direction {
   Left = "Left",

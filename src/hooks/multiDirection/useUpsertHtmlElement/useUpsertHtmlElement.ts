@@ -1,4 +1,4 @@
-import { useMultiDirectionContext } from "../contexts/useMultiDirectionContext";
+import { useMultiDirectionContext } from "../";
 
 export function useUpsertHtmlElement() {
   const { upsert } = useMultiDirectionContext();
