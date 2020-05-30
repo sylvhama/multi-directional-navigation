@@ -30,19 +30,15 @@ const StyledNavLink = styled(NavLink)<IsFocusedProps>`
     font-weight: bold;
   }
 
-  ${({ isFocused }) =>
-    isFocused &&
-    `
-      &::before{
-        position: absolute;
-        top: 50%;
-        left: -2rem;
-        content: '☞';
-        margin-top: -1.2rem;
-        font-size: 2rem;
-        color: white;
-      }
-    `}
+  &.is-focused::before {
+    position: absolute;
+    top: 50%;
+    left: -2rem;
+    content: "☞";
+    margin-top: -1.2rem;
+    font-size: 2rem;
+    color: white;
+  }
 `;
 
 enum IDs {
@@ -84,7 +80,9 @@ export function Nav() {
           <StyledNavLink
             exact
             to="/"
-            isFocused={currentFocusedId === IDs.VerticalList}
+            className={isFocusedClassName(
+              currentFocusedId === IDs.VerticalList
+            )}
             tabIndex={getTabIndex(IDs.VerticalList)}
             ref={(navLink: HTMLElement | null) =>
               insertFocus(IDs.VerticalList, false, navLink, undefined, -1)
@@ -97,7 +95,9 @@ export function Nav() {
           <StyledNavLink
             exact
             to="/horizontal-list"
-            isFocused={currentFocusedId === IDs.HorizontalList}
+            className={isFocusedClassName(
+              currentFocusedId === IDs.HorizontalList
+            )}
             tabIndex={getTabIndex(IDs.HorizontalList)}
             ref={(navLink: HTMLElement | null) =>
               insertFocus(IDs.HorizontalList, false, navLink, undefined, -1)
@@ -110,7 +110,7 @@ export function Nav() {
           <StyledNavLink
             exact
             to="/modal"
-            isFocused={currentFocusedId === IDs.Modal}
+            className={isFocusedClassName(currentFocusedId === IDs.Modal)}
             tabIndex={getTabIndex(IDs.Modal)}
             ref={(navLink: HTMLElement | null) =>
               insertFocus(IDs.Modal, false, navLink, undefined, -1)
@@ -122,4 +122,9 @@ export function Nav() {
       </List>
     </nav>
   );
+}
+
+// We are doing this because of https://github.com/styled-components/styled-components/issues/135
+function isFocusedClassName(isFocused: boolean) {
+  return isFocused ? "is-focused" : "";
 }
