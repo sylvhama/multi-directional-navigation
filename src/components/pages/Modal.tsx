@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import useSound from "use-sound";
 
 import {
   useInsertFocusRemove,
@@ -9,6 +10,8 @@ import {
 } from "../../hooks";
 
 import { IsFocusedProps } from "../shared/types";
+
+import errorSound from "../../sounds/error.mp3";
 
 const fadeIn = keyframes`
   from {
@@ -59,11 +62,17 @@ const ModalContent = styled.article`
   max-width: 90vw;
   max-height: 33.33vh;
   background-color: #333;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 2rem;
   align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
   animation: ${scaleIn} 250ms ease-in-out 1;
+
+  @media (max-width: 800px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
 `;
 
 const Button = styled.button<IsFocusedProps>`
@@ -74,6 +83,7 @@ const Button = styled.button<IsFocusedProps>`
   color: white;
   text-align: center;
   transition: background-color ease 250ms;
+  line-height: 1;
 
   ${({ isFocused }) =>
     isFocused &&
@@ -131,6 +141,8 @@ function Dialog({ onClose }: DialogProps) {
   const insertFocus = useInsertFocusRemove();
   const getTabIndex = useTabindex();
 
+  const [playErrorSound] = useSound(errorSound);
+
   return (
     <ModalWrapper>
       <ModalContent>
@@ -140,8 +152,9 @@ function Dialog({ onClose }: DialogProps) {
           ref={(button: HTMLElement | null) =>
             insertFocus(IDs.Nothing, true, button, undefined, 1)
           }
+          onClick={() => playErrorSound()}
         >
-          I do nothing
+          ⚠️
         </Button>
         <Button
           isFocused={currentFocusedId === IDs.Close}

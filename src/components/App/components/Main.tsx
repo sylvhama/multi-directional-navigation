@@ -5,11 +5,11 @@ import { VerticalList } from "../../pages/VerticalList";
 import { HorizontalList } from "../../pages/HorizontalList";
 import { Modal } from "../../pages/Modal";
 
-import { useDirectionListener } from "../../../hooks";
+interface Props {
+  isKeyPressed: boolean;
+}
 
-export function Main() {
-  const isKeyPressed = useDirectionListener();
-
+export function Main({ isKeyPressed }: Props) {
   return (
     <main style={{ overflow: "hidden" }}>
       <Switch>
