@@ -2,7 +2,7 @@ import React from "react";
 import { Element, State, Action, Props } from "./types";
 import { reducer } from "./reducer";
 
-const initialState: State = {
+export const initialState: State = {
   elements: {},
   currentFocusedId: null,
   currentDepth: 0
