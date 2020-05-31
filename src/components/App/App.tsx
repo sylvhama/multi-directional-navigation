@@ -1,11 +1,6 @@
 import React from "react";
 
-import { Layout } from "./components/Layout";
-import { Header } from "./components/Header";
-import { Nav } from "./components/Nav";
-import { Main } from "./components/Main";
-import { Footer } from "./components/Footer";
-import { GlobalStyle } from "./components/GlobalStyle";
+import { Layout, Header, Nav, Main, Footer, GlobalStyle } from "./components";
 import {
   useDirectionListener,
   useCurrentFocusedId,

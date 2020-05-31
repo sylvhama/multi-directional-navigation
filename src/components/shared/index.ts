@@ -1,3 +1,5 @@
-export { Anchor } from "./Anchor";
-export { Element } from "./Element";
-export { Wrapper } from "./Wrapper";
+export { Base } from "./Base";
+export { Card } from "./Card";
+export { HorizontalGrid } from "./HorizontalGrid";
+export { Square } from "./Square";
+export { VerticalGrid } from "./VerticalGrid";

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Base } from "./Base";
-import { Props } from "./types";
+import { Base } from "../";
+import { Props } from "../types";
 
 const StyledBase = styled(Base)`
   position: relative;

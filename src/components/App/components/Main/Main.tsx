@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { VerticalList } from "../../pages/VerticalList";
-import { HorizontalList } from "../../pages/HorizontalList";
-import { Modal } from "../../pages/Modal";
+import { VerticalList } from "../../../pages/VerticalList";
+import { HorizontalList } from "../../../pages/HorizontalList";
+import { Modal } from "../../../pages/Modal";
 
 interface Props {
   isKeyPressed: boolean;

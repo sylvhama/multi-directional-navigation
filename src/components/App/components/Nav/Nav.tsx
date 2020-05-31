@@ -8,9 +8,9 @@ import {
   useFocus,
   useTabindex,
   useRememberFocusedId
-} from "../../../hooks";
+} from "../../../../hooks";
 
-import { IsFocusedProps } from "../../shared/types";
+import { IsFocusedProps } from "../../../shared/types";
 
 const List = styled.ul`
   display: grid;
