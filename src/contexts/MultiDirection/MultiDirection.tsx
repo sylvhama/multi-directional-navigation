@@ -1,20 +1,20 @@
 import React from "react";
-import { Element, State, Action, Props } from "./types";
+import {
+  Element,
+  State,
+  MultiDirectionContextInterface,
+  Action,
+  Props
+} from "./types";
 import { reducer } from "./reducer";
+
+const noop = () => {};
 
 export const initialState: State = {
   elements: {},
   currentFocusedId: null,
   currentDepth: 0
 };
-
-interface MultiDirectionContextInterface extends State {
-  upsert: (element: Element) => void;
-  remove: (id: string) => void;
-  focus: (id: string) => void;
-}
-
-const noop = () => {};
 
 export const MultiDirectionContext = React.createContext<
   MultiDirectionContextInterface

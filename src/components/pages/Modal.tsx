@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import useSound from "use-sound";
 
 import {
   useInsertFocusRemove,
   useCurrentFocusedId,
   useTabindex,
-  useFocus
+  useFocus,
+  useSound
 } from "../../hooks";
 
 import { IsFocusedProps } from "../shared/types";

@@ -16,6 +16,12 @@ export interface State {
   currentDepth: number;
 }
 
+export interface MultiDirectionContextInterface extends State {
+  upsert: (element: Element) => void;
+  remove: (id: string) => void;
+  focus: (id: string) => void;
+}
+
 export enum Action {
   UPSERT = "UPSERT",
   REMOVE = "REMOVE",

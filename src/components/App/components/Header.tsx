@@ -1,11 +1,17 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
+import { useIsMuted } from "../../../hooks";
+
 export function Header() {
+  const [isMuted] = useIsMuted();
   return (
     <header>
       <h1>Multi-directional Navigation</h1>
       <p>Focus an element based on a direction input: ⇦ ⇧ ⇨ ⇩</p>
+      <p>
+        Press <em>M</em> to {isMuted ? "unmute" : "mute"} the sound.
+      </p>
       <Switch>
         <Route path="/modal" />
         <Route

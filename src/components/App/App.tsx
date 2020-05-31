@@ -1,5 +1,4 @@
 import React from "react";
-import useSound from "use-sound";
 
 import { Layout } from "./components/Layout";
 import { Header } from "./components/Header";
@@ -10,7 +9,10 @@ import { GlobalStyle } from "./components/GlobalStyle";
 import {
   useDirectionListener,
   useCurrentFocusedId,
-  usePrevious
+  usePrevious,
+  useSound,
+  useIsMuted,
+  useKeyboardListener
 } from "../../hooks";
 
 import moveSound from "../../sounds/move.mp3";
@@ -20,6 +22,14 @@ export function App() {
   const currentFocusedId = useCurrentFocusedId();
   const previousFocusedId = usePrevious(currentFocusedId);
   const [playMoveSound] = useSound(moveSound);
+  const [isMuted, setIsMuted] = useIsMuted();
+
+  useKeyboardListener("keyup", ({ keyCode }) => {
+    switch (keyCode) {
+      case 77: // M
+        return setIsMuted(!isMuted);
+    }
+  });
 
   React.useEffect(() => {
     if (previousFocusedId && currentFocusedId !== previousFocusedId) {

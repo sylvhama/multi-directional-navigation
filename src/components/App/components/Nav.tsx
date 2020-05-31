@@ -68,12 +68,15 @@ export function Nav() {
         })
       }
       onFocus={() => {
-        if (currentFocusedId && currentFocusedId === IDs.Nav)
+        if (currentFocusedId && currentFocusedId === IDs.Nav) {
           focus(IDs.VerticalList);
+        }
       }}
       onKeyDown={event => {
-        if (lastFocusedIdOutsideNav && event.keyCode === 40)
+        if (lastFocusedIdOutsideNav && event.keyCode === 40) {
+          event.stopPropagation();
           focus(lastFocusedIdOutsideNav);
+        }
       }}
     >
       <List>
