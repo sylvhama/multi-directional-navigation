@@ -70,6 +70,7 @@ const ModalContent = styled.article`
   animation: ${scaleIn} 250ms ease-in-out 1;
 
   @media (max-width: 800px) {
+    max-height: 90vh;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
   }
