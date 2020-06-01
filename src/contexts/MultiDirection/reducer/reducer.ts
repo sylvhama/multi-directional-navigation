@@ -3,7 +3,7 @@ import {
   Action,
   UpsertAction,
   RemoveAction,
-  FocusAction
+  FocusAction,
 } from "../types";
 
 export function reducer(
@@ -17,8 +17,8 @@ export function reducer(
         ...state,
         elements: {
           ...state.elements,
-          [element.id]: element
-        }
+          [element.id]: element,
+        },
       };
 
     case Action.REMOVE:
@@ -32,7 +32,7 @@ export function reducer(
           removedElement.id === state.currentFocusedId
             ? null
             : state.currentFocusedId,
-        elements: nextElements
+        elements: nextElements,
       };
 
     case Action.FOCUS:
@@ -41,7 +41,7 @@ export function reducer(
       return {
         ...state,
         currentFocusedId: action.id,
-        currentDepth: focusedElement.depth
+        currentDepth: focusedElement.depth,
       };
 
     default:

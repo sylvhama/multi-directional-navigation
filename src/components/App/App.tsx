@@ -7,10 +7,10 @@ import {
   usePrevious,
   useSound,
   useIsMuted,
-  useKeyboardListener
+  useKeyboardListener,
 } from "../../hooks";
 
-import moveSound from "../../sounds/move.mp3";
+const moveSound = require("../../sounds/move.mp3");
 
 export function App() {
   const isKeyPressed = useDirectionListener();
@@ -30,7 +30,7 @@ export function App() {
     if (previousFocusedId && currentFocusedId !== previousFocusedId) {
       playMoveSound();
     }
-  }, [currentFocusedId, previousFocusedId]);
+  }, [playMoveSound, currentFocusedId, previousFocusedId]);
 
   return (
     <>

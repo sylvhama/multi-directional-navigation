@@ -6,12 +6,12 @@ import {
   useCurrentFocusedId,
   useTabindex,
   useFocus,
-  useSound
+  useSound,
 } from "../../hooks";
 
 import { IsFocusedProps } from "../shared/types";
 
-import errorSound from "../../sounds/error.mp3";
+const errorSound = require("../../sounds/error.mp3");
 
 const fadeIn = keyframes`
   from {
@@ -97,7 +97,7 @@ const Button = styled.button<IsFocusedProps>`
 enum IDs {
   Open = "Open",
   Nothing = "Nothing",
-  Close = "Close"
+  Close = "Close",
 }
 
 export function Modal() {
@@ -154,8 +154,9 @@ function Dialog({ onClose }: DialogProps) {
             insertFocus(IDs.Nothing, true, button, undefined, 1)
           }
           onClick={() => playErrorSound()}
+          aria-label="Don't click one me"
         >
-          ⚠️
+          <span role="img">⚠️</span>
         </Button>
         <Button
           isFocused={currentFocusedId === IDs.Close}

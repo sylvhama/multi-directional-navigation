@@ -5,7 +5,7 @@ import {
   useUpsertHtmlElement,
   useUpsert,
   useFocus,
-  useRemove
+  useRemove,
 } from "../";
 import { Position } from "../../../contexts/MultiDirection/types";
 

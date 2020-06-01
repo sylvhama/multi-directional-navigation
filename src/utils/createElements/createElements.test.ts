@@ -6,7 +6,7 @@ describe("createElements", () => {
     expect(elements).toMatchObject([
       { id: "1", toFocus: true },
       { id: "2", toFocus: false },
-      { id: "3", toFocus: false }
+      { id: "3", toFocus: false },
     ]);
   });
 });

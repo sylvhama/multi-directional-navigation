@@ -1,52 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
 
 import {
   useInsertFocusRemove,
   useCurrentFocusedId,
   useFocus,
   useTabindex,
-  useRememberFocusedId
+  useRememberFocusedId,
 } from "../../../../hooks";
 
-import { IsFocusedProps } from "../../../shared/types";
-
-const List = styled.ul`
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(3, auto);
-  text-align: center;
-`;
-
-const StyledNavLink = styled(NavLink)<IsFocusedProps>`
-  position: relative;
-  text-decoration: none;
-  color: #aaa;
-  outline: 0;
-
-  &.active {
-    color: #f1f1f1;
-    font-weight: bold;
-  }
-
-  &.is-focused::before {
-    position: absolute;
-    top: 50%;
-    left: -2rem;
-    content: "☞";
-    margin-top: -1rem;
-    font-size: 2rem;
-    color: white;
-    line-height: 1;
-  }
-`;
+import { List, StyledNavLink } from "./components";
 
 enum IDs {
   Nav = "Nav",
   VerticalList = "VerticalList",
   HorizontalList = "HorizontalList",
-  Modal = "Modal"
+  Modal = "Modal",
 }
 
 export function Nav() {
@@ -59,12 +27,12 @@ export function Nav() {
   return (
     <nav
       tabIndex={getTabIndex(IDs.Nav)}
-      ref={nav =>
+      ref={(nav) =>
         insertFocus(IDs.Nav, false, nav, {
           top: 0,
           bottom: 0,
           left: -Infinity,
-          right: Infinity
+          right: Infinity,
         })
       }
       onFocus={() => {
@@ -72,7 +40,7 @@ export function Nav() {
           focus(IDs.VerticalList);
         }
       }}
-      onKeyDown={event => {
+      onKeyDown={(event) => {
         if (lastFocusedIdOutsideNav && event.keyCode === 40) {
           event.stopPropagation();
           focus(lastFocusedIdOutsideNav);

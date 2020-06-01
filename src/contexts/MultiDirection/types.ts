@@ -25,7 +25,7 @@ export interface MultiDirectionContextInterface extends State {
 export enum Action {
   UPSERT = "UPSERT",
   REMOVE = "REMOVE",
-  FOCUS = "FOCUS"
+  FOCUS = "FOCUS",
 }
 
 export type UpsertAction = {

@@ -1,5 +1,5 @@
 import { useCurrentFocusedId } from "../useCurrentFocusedId";
-import { usePrevious } from "../../general/usePrevious";
+import { usePrevious } from "../../general";
 
 export function useTabindex() {
   const currentFocusedId = useCurrentFocusedId();

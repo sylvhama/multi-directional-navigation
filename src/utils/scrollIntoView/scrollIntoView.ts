@@ -7,6 +7,6 @@ export const scrollIntoView = (
   target.scrollIntoView({
     behavior: fastScroll ? "auto" : "smooth",
     block,
-    inline
+    inline,
   });
 };

@@ -12,7 +12,7 @@ interface MuteInterface {
 
 const defaultState = {
   isMuted: false,
-  setIsMuted: () => {}
+  setIsMuted: () => {},
 };
 
 export const MuteContext = React.createContext<MuteInterface>(defaultState);

@@ -1,1 +1,1 @@
-export { useKeyboardListener, Handler } from "./useKeyboardListener";
+export { useKeyboardListener } from "./useKeyboardListener";

@@ -5,7 +5,7 @@ import { Square } from "../shared/Square";
 import {
   useInsertFocusRemove,
   useCurrentFocusedId,
-  useTabindex
+  useTabindex,
 } from "../../hooks";
 
 import { scrollIntoView, createElements } from "../../utils";
@@ -23,13 +23,13 @@ export function VerticalList({ isKeyPressed }: Props) {
 
   return (
     <VerticalGrid rows={Math.ceil(elements.length / 3)}>
-      {elements.map(element => (
+      {elements.map((element) => (
         <Square
           key={element.id}
           isFocused={currentFocusedId === element.id}
           tabIndex={getTabIndex(element.id)}
-          ref={div => insertFocus(element.id, element.toFocus, div)}
-          onFocus={event => {
+          ref={(div) => insertFocus(element.id, element.toFocus, div)}
+          onFocus={(event) => {
             scrollIntoView(event.target, isKeyPressed);
             console.log(`You've focused element ${element.id}.`);
           }}

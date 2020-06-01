@@ -4,7 +4,7 @@ import {
   State,
   MultiDirectionContextInterface,
   Action,
-  Props
+  Props,
 } from "./types";
 import { reducer } from "./reducer";
 
@@ -13,7 +13,7 @@ const noop = () => {};
 export const initialState: State = {
   elements: {},
   currentFocusedId: null,
-  currentDepth: 0
+  currentDepth: 0,
 };
 
 export const MultiDirectionContext = React.createContext<

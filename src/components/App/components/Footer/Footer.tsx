@@ -5,7 +5,7 @@ import {
   useCurrentFocusedId,
   useFocus,
   useTabindex,
-  useRememberFocusedId
+  useRememberFocusedId,
 } from "../../../../hooks";
 
 import { Anchor } from "./components";
@@ -30,11 +30,11 @@ export function Footer() {
               top: Infinity,
               bottom: Infinity,
               left: -Infinity,
-              right: Infinity
+              right: Infinity,
             })
           }
           href="https://github.com/sylvhama/multi-directional-navigation"
-          onKeyDown={event => {
+          onKeyDown={(event) => {
             if (lastFocusedIdOutsideFooter && event.keyCode === 38) {
               event.stopPropagation();
               focus(lastFocusedIdOutsideFooter);

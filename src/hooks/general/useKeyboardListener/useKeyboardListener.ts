@@ -1,7 +1,6 @@
 import React from "react";
 import throttle from "lodash/throttle";
-
-export type Handler = (event: KeyboardEvent) => void;
+import { Handler } from "./types";
 
 // inspired from https://usehooks.com/useEventListener/
 export function useKeyboardListener(

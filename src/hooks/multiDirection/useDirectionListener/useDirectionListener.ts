@@ -1,17 +1,15 @@
 import React from "react";
 
 import { findClosestNeighborId } from "../../../utils/findClosestNeighborId";
-import {
-  useKeyboardListener,
-  Handler
-} from "../../general/useKeyboardListener";
+import { useKeyboardListener } from "../../general";
+import { Handler } from "../../general/useKeyboardListener/types";
 import { useMultiDirectionContext, useFocus } from "../";
 
 export enum Direction {
   Left = "Left",
   Top = "Top",
   Right = "Right",
-  Bottom = "Bottom"
+  Bottom = "Bottom",
 }
 
 export function useDirectionListener(
@@ -27,7 +25,7 @@ export function useDirectionListener(
   const { left, top, right, bottom } = keys;
 
   const handler: Handler = React.useCallback(
-    event => {
+    (event) => {
       const direction = getDirection(event.keyCode, left, top, right, bottom);
 
       if (!direction) {
@@ -56,7 +54,7 @@ export function useDirectionListener(
       focus,
       elements,
       currentFocusedId,
-      findDestination
+      findDestination,
     ]
   );
 

@@ -1,4 +1,4 @@
-import { Element } from "../../contexts/types";
+import { Element } from "../../contexts/MultiDirection/types";
 import { Direction } from "../../hooks";
 
 export function findClosestNeighborId(
@@ -9,7 +9,7 @@ export function findClosestNeighborId(
   if (!origin) return null;
 
   let neighbor: Element | undefined;
-  elements.forEach(element => {
+  elements.forEach((element) => {
     if (origin.id !== element.id && origin.depth === element.depth) {
       switch (direction) {
         case Direction.Left:

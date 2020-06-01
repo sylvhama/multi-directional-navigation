@@ -23,9 +23,9 @@ describe("MultiDirection reducer", () => {
           id: "element",
           left: 0,
           right: 0,
-          top: 0
-        }
-      }
+          top: 0,
+        },
+      },
     });
   });
 
@@ -37,8 +37,8 @@ describe("MultiDirection reducer", () => {
         id: "element",
         left: 0,
         right: 0,
-        top: 0
-      }
+        top: 0,
+      },
     };
 
     expect(
@@ -52,8 +52,8 @@ describe("MultiDirection reducer", () => {
             depth: 1,
             left: 1,
             right: 1,
-            top: 1
-          }
+            top: 1,
+          },
         }
       )
     ).toMatchObject({
@@ -66,9 +66,9 @@ describe("MultiDirection reducer", () => {
           id: "element",
           left: 1,
           right: 1,
-          top: 1
-        }
-      }
+          top: 1,
+        },
+      },
     });
   });
 
@@ -80,8 +80,8 @@ describe("MultiDirection reducer", () => {
         id: "element",
         left: 0,
         right: 0,
-        top: 0
-      }
+        top: 0,
+      },
     };
 
     expect(
@@ -89,13 +89,13 @@ describe("MultiDirection reducer", () => {
         { ...initialState, currentFocusedId: "element", elements },
         {
           type: Action.REMOVE,
-          id: "element"
+          id: "element",
         }
       )
     ).toMatchObject({
       currentDepth: 0,
       currentFocusedId: null,
-      elements: {}
+      elements: {},
     });
   });
 
@@ -107,8 +107,8 @@ describe("MultiDirection reducer", () => {
         id: "element",
         left: 0,
         right: 0,
-        top: 0
-      }
+        top: 0,
+      },
     };
 
     expect(
@@ -116,13 +116,13 @@ describe("MultiDirection reducer", () => {
         { ...initialState, currentFocusedId: "other-element", elements },
         {
           type: Action.REMOVE,
-          id: "element"
+          id: "element",
         }
       )
     ).toMatchObject({
       currentDepth: 0,
       currentFocusedId: "other-element",
-      elements: {}
+      elements: {},
     });
   });
 
@@ -134,8 +134,8 @@ describe("MultiDirection reducer", () => {
         id: "element",
         left: 0,
         right: 0,
-        top: 0
-      }
+        top: 0,
+      },
     };
 
     expect(
@@ -143,13 +143,13 @@ describe("MultiDirection reducer", () => {
         { ...initialState, elements },
         {
           type: Action.FOCUS,
-          id: "element"
+          id: "element",
         }
       )
     ).toMatchObject({
       currentDepth: 1,
       currentFocusedId: "element",
-      elements
+      elements,
     });
   });
 });
@@ -160,7 +160,7 @@ function createElement({
   left = 0,
   right = 0,
   top = 0,
-  bottom = 0
+  bottom = 0,
 } = {}) {
   return {
     id,
@@ -168,6 +168,6 @@ function createElement({
     left,
     right,
     top,
-    bottom
+    bottom,
   };
 }

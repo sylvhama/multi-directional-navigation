@@ -7,7 +7,7 @@ import {
   useInsertFocusRemove,
   useCurrentFocusedId,
   useFocus,
-  useTabindex
+  useTabindex,
 } from "../../hooks";
 
 import { scrollIntoView, createElements } from "../../utils";
@@ -40,7 +40,7 @@ export function HorizontalList({ isKeyPressed }: Props) {
           key={element.id}
           isFocused={currentFocusedId === element.id}
           tabIndex={getTabIndex(element.id)}
-          ref={div =>
+          ref={(div) =>
             insertFocus(
               element.id,
               element.toFocus,
@@ -48,7 +48,7 @@ export function HorizontalList({ isKeyPressed }: Props) {
               createCustomPositon(index)
             )
           }
-          onFocus={event => {
+          onFocus={(event) => {
             scrollIntoView(event.target, isKeyPressed);
             console.log(`You've focused element ${element.id}.`);
           }}
@@ -67,6 +67,6 @@ function createCustomPositon(index: number) {
     left: index + size * index,
     right: index + size * (index + 1),
     top: 100,
-    bottom: 100 + size
+    bottom: 100 + size,
   };
 }
