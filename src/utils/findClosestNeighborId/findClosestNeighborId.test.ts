@@ -1,5 +1,5 @@
 import { findClosestNeighborId } from "./";
-import { Direction } from "../../hooks";
+import { Direction } from "hooks";
 
 describe("findClosestNeighborId", () => {
   it("returns null when there is no origin", () => {

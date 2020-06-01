@@ -7,9 +7,9 @@ import {
   useTabindex,
   useFocus,
   useSound,
-} from "../../hooks";
+} from "hooks";
 
-import { IsFocusedProps } from "../shared/types";
+import { IsFocusedProps } from "components/shared/types";
 
 const errorSound = require("../../sounds/error.mp3");
 
@@ -154,9 +154,10 @@ function Dialog({ onClose }: DialogProps) {
             insertFocus(IDs.Nothing, true, button, undefined, 1)
           }
           onClick={() => playErrorSound()}
-          aria-label="Don't click one me"
         >
-          <span role="img">⚠️</span>
+          <span role="img" aria-label="Don't click one me">
+            ⚠️
+          </span>
         </Button>
         <Button
           isFocused={currentFocusedId === IDs.Close}

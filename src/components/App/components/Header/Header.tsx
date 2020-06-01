@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { useIsMuted } from "../../../../hooks";
+import { useIsMuted } from "hooks";
 
 export function Header() {
   const [isMuted] = useIsMuted();

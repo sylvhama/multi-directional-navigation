@@ -4,7 +4,7 @@ import {
   UpsertAction,
   RemoveAction,
   FocusAction,
-} from "../types";
+} from "contexts/MultiDirection/types";
 
 export function reducer(
   state: State,

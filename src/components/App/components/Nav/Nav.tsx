@@ -6,7 +6,7 @@ import {
   useFocus,
   useTabindex,
   useRememberFocusedId,
-} from "../../../../hooks";
+} from "hooks";
 
 import { List, StyledNavLink } from "./components";
 

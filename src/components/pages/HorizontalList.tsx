@@ -1,6 +1,5 @@
 import React from "react";
-import { HorizontalGrid } from "../shared/HorizontalGrid";
-import { Card } from "../shared/Card";
+import { HorizontalGrid, Card } from "components/shared";
 
 import {
   useKeyboardListener,
@@ -8,9 +7,9 @@ import {
   useCurrentFocusedId,
   useFocus,
   useTabindex,
-} from "../../hooks";
+} from "hooks";
 
-import { scrollIntoView, createElements } from "../../utils";
+import { scrollIntoView, createElements } from "utils";
 
 const elements = createElements(20);
 

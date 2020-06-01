@@ -1,14 +1,9 @@
 import React from "react";
-import { VerticalGrid } from "../shared/VerticalGrid";
-import { Square } from "../shared/Square";
+import { Square, VerticalGrid } from "components/shared";
 
-import {
-  useInsertFocusRemove,
-  useCurrentFocusedId,
-  useTabindex,
-} from "../../hooks";
+import { useInsertFocusRemove, useCurrentFocusedId, useTabindex } from "hooks";
 
-import { scrollIntoView, createElements } from "../../utils";
+import { scrollIntoView, createElements } from "utils";
 
 const elements = createElements(14);
 

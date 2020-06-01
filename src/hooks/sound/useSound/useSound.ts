@@ -1,5 +1,5 @@
 import useSoundLib from "use-sound";
-import { useIsMuted } from "../";
+import { useIsMuted } from "hooks";
 
 export function useSound(sound: string) {
   const [isMuted] = useIsMuted();

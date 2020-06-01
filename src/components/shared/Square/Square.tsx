@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Base } from "../";
-import { Props } from "../types";
+import { Base } from "components/shared";
+import { Props } from "components/shared/types";
 
 const StyledBase = styled(Base)`
   &:after {

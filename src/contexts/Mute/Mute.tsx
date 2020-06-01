@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocalStorage } from "../../hooks";
+import { useLocalStorage } from "hooks";
 
 type Props = {
   children: React.ReactNode;

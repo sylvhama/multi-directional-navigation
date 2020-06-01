@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Anchor /> renders style when isFocused is false 1`] = `
+.c0 {
+  position: relative;
+  color: #03a9f4;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<a
+  class="c0"
+/>
+`;
+
+exports[`<Anchor /> renders style when isFocused is true 1`] = `
+.c0 {
+  position: relative;
+  color: #03a9f4;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c0::before {
+  position: absolute;
+  top: 50%;
+  left: -1.5rem;
+  content: '🔗';
+  margin-top: -0.5rem;
+  font-size: 1rem;
+  color: white;
+  line-height: 1;
+}
+
+<a
+  class="c0"
+/>
+`;

@@ -6,7 +6,7 @@ import {
   useFocus,
   useTabindex,
   useRememberFocusedId,
-} from "../../../../hooks";
+} from "hooks";
 
 import { Anchor } from "./components";
 

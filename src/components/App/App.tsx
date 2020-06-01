@@ -8,9 +8,9 @@ import {
   useSound,
   useIsMuted,
   useKeyboardListener,
-} from "../../hooks";
+} from "hooks";
 
-const moveSound = require("../../sounds/move.mp3");
+const moveSound = require("sounds/move.mp3");
 
 export function App() {
   const isKeyPressed = useDirectionListener();

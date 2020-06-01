@@ -1,5 +1,4 @@
-import { useCurrentFocusedId } from "../useCurrentFocusedId";
-import { usePrevious } from "../../general";
+import { useCurrentFocusedId, usePrevious } from "hooks";
 
 export function useTabindex() {
   const currentFocusedId = useCurrentFocusedId();

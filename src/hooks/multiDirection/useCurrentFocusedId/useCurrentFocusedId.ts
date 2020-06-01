@@ -1,4 +1,4 @@
-import { useMultiDirectionContext } from "../";
+import { useMultiDirectionContext } from "hooks";
 
 export function useCurrentFocusedId() {
   const { currentFocusedId } = useMultiDirectionContext();

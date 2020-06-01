@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IsFocusedProps } from "../types";
+import { IsFocusedProps } from "components/shared/types";
 
 export const Base = styled.article<IsFocusedProps>`
   border: 5px solid #333;

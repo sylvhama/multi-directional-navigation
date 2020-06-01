@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-import { IsFocusedProps } from "../../../../../shared/types";
+import { IsFocusedProps } from "components/shared/types";
 
 export const StyledNavLink = styled(NavLink)<IsFocusedProps>`
   position: relative;

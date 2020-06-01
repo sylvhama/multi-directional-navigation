@@ -1,4 +1,4 @@
-import { useMultiDirectionContext } from "../";
+import { useMultiDirectionContext } from "hooks";
 
 export function useIsInserted() {
   const { elements } = useMultiDirectionContext();

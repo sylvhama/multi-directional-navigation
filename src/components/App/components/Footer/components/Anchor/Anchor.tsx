@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IsFocusedProps } from "../../../../../shared/types";
+import { IsFocusedProps } from "components/shared/types";
 
 export const Anchor = styled.a<IsFocusedProps>`
   position: relative;
