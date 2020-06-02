@@ -2,7 +2,7 @@ import React from "react";
 import {
   Element,
   State,
-  MultiDirectionContextInterface,
+  MultiDirectionInterface,
   Action,
   Props,
 } from "./types";
@@ -17,10 +17,10 @@ export const initialState: State = {
 };
 
 export const MultiDirectionContext = React.createContext<
-  MultiDirectionContextInterface
+  MultiDirectionInterface
 >({ ...initialState, upsert: noop, remove: noop, focus: noop });
 
-export const MultiDirectionProvider = ({ children }: Props) => {
+export const MultiDirectionProvider = ({ children, value }: Props) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const upsert = (element: Element) =>
@@ -31,7 +31,9 @@ export const MultiDirectionProvider = ({ children }: Props) => {
   const focus = (id: string) => dispatch({ type: Action.FOCUS, id });
 
   return (
-    <MultiDirectionContext.Provider value={{ ...state, upsert, remove, focus }}>
+    <MultiDirectionContext.Provider
+      value={value || { ...state, upsert, remove, focus }}
+    >
       {children}
     </MultiDirectionContext.Provider>
   );

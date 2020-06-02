@@ -9,7 +9,7 @@ export function Header() {
     <header>
       <h1>Multi-directional Navigation</h1>
       <p>Focus an element based on a direction input: ⇦ ⇧ ⇨ ⇩</p>
-      <p>
+      <p data-testid="mute">
         Press <em>M</em> to {isMuted ? "unmute" : "mute"} the sound.
       </p>
       <Switch>
@@ -23,7 +23,7 @@ export function Header() {
       <Route
         path="/horizontal-list"
         render={() => (
-          <p>
+          <p data-testid="skip">
             Press <em>home</em> or <em>end</em> for a fast skip.
           </p>
         )}

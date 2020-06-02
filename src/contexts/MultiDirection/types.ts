@@ -16,7 +16,7 @@ export interface State {
   currentDepth: number;
 }
 
-export interface MultiDirectionContextInterface extends State {
+export interface MultiDirectionInterface extends State {
   upsert: (element: Element) => void;
   remove: (id: string) => void;
   focus: (id: string) => void;
@@ -45,4 +45,5 @@ export type FocusAction = {
 
 export type Props = {
   children: React.ReactNode;
+  value?: MultiDirectionInterface;
 };
