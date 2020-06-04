@@ -29,6 +29,10 @@ export function VerticalList({ isKeyPressed }: Props) {
             console.log(`You've focused element ${element.id}.`);
           }}
           onBlur={() => console.log(`You've blured element ${element.id}.`)}
+          onKeyDown={({ keyCode }) =>
+            keyCode === 13 &&
+            console.log(`You've pressed ↵ on element ${element.id}.`)
+          }
         >
           {element.id}
         </Square>

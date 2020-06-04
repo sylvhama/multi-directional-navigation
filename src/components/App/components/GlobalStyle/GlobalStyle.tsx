@@ -24,11 +24,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    padding-bottom: 1rem;
-  }
-
-  p + p {
-    padding-top: 0.5rem;
+    padding: 1rem 0;
   }
 
   h1, p {

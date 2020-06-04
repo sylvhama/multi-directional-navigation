@@ -16,41 +16,37 @@ describe("<Header />", () => {
     mockUseIsMuted(false);
   });
 
-  it("renders default text", () => {
-    const { getByText } = render(<Header />);
+  it("renders texts that are always visible", () => {
+    const { getByText,getByTestId } = render(<Header />);
 
     expect(getByText("Multi-directional Navigation")).toBeInTheDocument();
 
-    expect(
-      getByText("Focus an element based on a direction input: ⇦ ⇧ ⇨ ⇩")
-    ).toBeInTheDocument();
+    expect(getByTestId("navigate")).toHaveTextContent('← ↑ → ↓ navigate');
+
+    expect(getByTestId("interact")).toHaveTextContent('↵ interact');
   });
 
   it.each([
-    [false, "Press <em>M</em> to mute the sound."],
-    [true, "Press <em>M</em> to unmute the sound."],
-  ])("renders mute/unmute text", (isMuted, html) => {
+    [false, "M mute"],
+    [true, "M unmute"],
+  ])("renders mute/unmute text", (isMuted, text) => {
     mockUseIsMuted(isMuted);
 
     const { getByTestId } = render(<Header />);
 
-    expect(getByTestId("mute")).toContainHTML(html);
+    expect(getByTestId("mute")).toHaveTextContent(text);
   });
 
   it("renders message when route is /modal", () => {
-    const { getByText } = render(<Header />, { route: "/" });
+    const { queryByTestId } = render(<Header />, { route: "/" });
 
-    expect(
-      getByText("Check the console logs to see focus and blur events.")
-    ).toBeInTheDocument();
+    expect(queryByTestId("tips")).toHaveTextContent('💡 Check the console logs!');
   });
 
   it("renders message when route is /horizontal-list", () => {
     const { getByTestId } = render(<Header />, { route: "/horizontal-list" });
 
-    expect(getByTestId("skip")).toContainHTML(
-      "Press <em>home</em> or <em>end</em> for a fast skip."
-    );
+    expect(getByTestId("skip")).toHaveTextContent("home / end fast skip");
   });
 
   it("does not rendes messages when route is /", () => {
@@ -58,9 +54,7 @@ describe("<Header />", () => {
       route: "/modal",
     });
 
-    expect(
-      queryByText("Check the console logs to see focus and blur events.")
-    ).not.toBeInTheDocument();
+    expect(queryByTestId("tips")).not.toBeInTheDocument();
 
     expect(queryByTestId("skip")).not.toBeInTheDocument();
   });
