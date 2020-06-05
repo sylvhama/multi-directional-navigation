@@ -11,7 +11,7 @@ type Props = {
   isKeyPressed: boolean;
 };
 
-export function VerticalList({ isKeyPressed }: Props) {
+export default function VerticalList({ isKeyPressed }: Props) {
   const currentFocusedId = useCurrentFocusedId();
   const insertFocus = useInsertFocusRemove();
   const getTabIndex = useTabindex();

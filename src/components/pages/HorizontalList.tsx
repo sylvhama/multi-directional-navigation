@@ -17,7 +17,7 @@ type Props = {
   isKeyPressed: boolean;
 };
 
-export function HorizontalList({ isKeyPressed }: Props) {
+export default function HorizontalList({ isKeyPressed }: Props) {
   const currentFocusedId = useCurrentFocusedId();
   const insertFocus = useInsertFocusRemove();
   const focus = useFocus();

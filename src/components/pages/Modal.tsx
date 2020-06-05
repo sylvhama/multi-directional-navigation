@@ -100,7 +100,7 @@ enum IDs {
   Close = "Close",
 }
 
-export function Modal() {
+export default function Modal() {
   const [open, setOpen] = React.useState(false);
   const currentFocusedId = useCurrentFocusedId();
   const insertFocus = useInsertFocusRemove();

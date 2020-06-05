@@ -1,9 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { VerticalList } from "components/pages/VerticalList";
-import { HorizontalList } from "components/pages/HorizontalList";
-import { Modal } from "components/pages/Modal";
+import { Loading } from "./components";
+
+const VerticalList = React.lazy(() => import("components/pages/VerticalList"));
+const HorizontalList = React.lazy(() =>
+  import("components/pages/HorizontalList")
+);
+const Modal = React.lazy(() => import("components/pages/Modal"));
 
 interface Props {
   isKeyPressed: boolean;
@@ -11,18 +15,20 @@ interface Props {
 
 export function Main({ isKeyPressed }: Props) {
   return (
-    <main style={{ overflow: "hidden" }}>
-      <Switch>
-        <Route path="/horizontal-list">
-          <HorizontalList isKeyPressed={isKeyPressed} />
-        </Route>
-        <Route path="/modal">
-          <Modal />
-        </Route>
-        <Route>
-          <VerticalList isKeyPressed={isKeyPressed} />
-        </Route>
-      </Switch>
-    </main>
+    <Suspense fallback={<Loading />}>
+      <main style={{ overflow: "hidden" }}>
+        <Switch>
+          <Route path="/horizontal-list">
+            <HorizontalList isKeyPressed={isKeyPressed} />
+          </Route>
+          <Route path="/modal">
+            <Modal />
+          </Route>
+          <Route>
+            <VerticalList isKeyPressed={isKeyPressed} />
+          </Route>
+        </Switch>
+      </main>
+    </Suspense>
   );
 }
