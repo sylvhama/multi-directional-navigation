@@ -20,7 +20,7 @@ export const MultiDirectionContext = React.createContext<
   MultiDirectionInterface
 >({ ...initialState, upsert: noop, remove: noop, focus: noop });
 
-export const MultiDirectionProvider = ({ children, value }: Props) => {
+export const MultiDirectionProvider = ({ children, overrideValue }: Props) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const upsert = (element: Element) =>
@@ -32,7 +32,7 @@ export const MultiDirectionProvider = ({ children, value }: Props) => {
 
   return (
     <MultiDirectionContext.Provider
-      value={value || { ...state, upsert, remove, focus }}
+      value={{ ...state, upsert, remove, focus, ...overrideValue }}
     >
       {children}
     </MultiDirectionContext.Provider>

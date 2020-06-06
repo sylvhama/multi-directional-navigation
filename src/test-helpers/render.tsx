@@ -15,8 +15,8 @@ interface WrapperProps {
 interface ProviderOptions {
   route?: string;
   history?: MemoryHistory<{}>;
-  multiDirectionValue?: MultiDirectionInterface;
-  muteValue?: MuteInterface;
+  multiDirectionValue?: Partial<MultiDirectionInterface>;
+  muteValue?: Partial<MuteInterface>;
 }
 
 export function render(
@@ -34,8 +34,8 @@ export function render(
   }: WrapperProps) => {
     return (
       <Router history={history}>
-        <MultiDirectionProvider value={multiDirectionValue}>
-          <MuteProvider value={muteValue}>{children}</MuteProvider>
+        <MultiDirectionProvider overrideValue={multiDirectionValue}>
+          <MuteProvider overrideValue={muteValue}>{children}</MuteProvider>
         </MultiDirectionProvider>
       </Router>
     );

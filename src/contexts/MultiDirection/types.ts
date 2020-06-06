@@ -45,5 +45,5 @@ export type FocusAction = {
 
 export type Props = {
   children: React.ReactNode;
-  value?: MultiDirectionInterface;
+  overrideValue?: Partial<MultiDirectionInterface>;
 };

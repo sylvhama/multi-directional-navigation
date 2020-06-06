@@ -1,6 +1,6 @@
 export type Props = {
   children: React.ReactNode;
-  value?: MuteInterface;
+  overrideValue?: Partial<MuteInterface>;
 };
 
 export interface MuteInterface {

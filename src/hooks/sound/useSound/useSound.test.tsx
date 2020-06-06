@@ -27,7 +27,7 @@ describe("useSound", () => {
   it("plays sound with sound enabled", () => {
     renderHook(() => useSound(sound), {
       wrapper: ({ children }) => (
-        <MuteProvider value={{ isMuted: true, setIsMuted: () => {} }}>
+        <MuteProvider overrideValue={{ isMuted: true }}>
           {children}
         </MuteProvider>
       ),

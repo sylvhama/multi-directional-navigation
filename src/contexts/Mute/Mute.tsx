@@ -9,14 +9,14 @@ const defaultState = {
 
 export const MuteContext = React.createContext<MuteInterface>(defaultState);
 
-export const MuteProvider = ({ children, value }: Props) => {
+export const MuteProvider = ({ children, overrideValue }: Props) => {
   const [isMuted, setIsMuted] = useLocalStorage(
     "isMuted",
     defaultState.isMuted
   );
 
   return (
-    <MuteContext.Provider value={value || { isMuted, setIsMuted }}>
+    <MuteContext.Provider value={{ isMuted, setIsMuted, ...overrideValue }}>
       {children}
     </MuteContext.Provider>
   );

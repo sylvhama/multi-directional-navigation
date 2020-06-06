@@ -1,7 +1,7 @@
 import React from "react";
 import { useCurrentFocusedId } from "hooks";
 
-export function useRememberFocusedId(idsToIgnore: string[]) {
+export function useRememberFocusedId(idsToIgnore: string[] = []) {
   const currentFocusedId = useCurrentFocusedId();
 
   const [rememberedId, remember] = React.useState("");
