@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Square /> renders style when isFocused is false 1`] = `
+.c0 {
+  border: 5px solid #333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 4rem;
+  background-color: #dfe3e8;
+  color: #212b36;
+}
+
+.c0:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+<article
+  class="sc-AxjAm c0"
+/>
+`;
+
+exports[`<Square /> renders style when isFocused is true 1`] = `
+.c0 {
+  border: 5px solid #333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 4rem;
+  background-color: #dfe3e8;
+  color: #212b36;
+  border-color: #006FBB;
+  background-color: #F9FAFB;
+  font-weight: bold;
+}
+
+.c0:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+<article
+  class="sc-AxjAm c0"
+/>
+`;
