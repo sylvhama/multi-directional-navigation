@@ -11,7 +11,7 @@ import {
 
 import { scrollIntoView, createElements } from "utils";
 
-const elements = createElements(20);
+const elements = createElements(20, 'B');
 
 type Props = {
   isKeyPressed: boolean;

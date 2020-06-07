@@ -5,7 +5,7 @@ import { useInsertFocusRemove, useCurrentFocusedId, useTabindex } from "hooks";
 
 import { scrollIntoView, createElements } from "utils";
 
-const elements = createElements(14);
+const elements = createElements(14, 'A');
 
 type Props = {
   isKeyPressed: boolean;
