@@ -1,6 +1,6 @@
 # Multi Directional Navigation
 
-![https://multi-directional-navigation.netlify.app/](https://i.imgur.com/Y3r0vT7.gif)
+<a href="https://multi-directional-navigation.netlify.app"><img alt="Preview" src="https://i.imgur.com/Y3r0vT7.gif" /></a>
 
 Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩
 
