@@ -35,7 +35,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test:unit": "react-scripts test",
+    "test": "npm run test:unit && npm run cy:run",
     "eject": "react-scripts eject",
     "cy:run": "cypress run",
     "cy:open": "cypress open"
