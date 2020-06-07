@@ -25,7 +25,7 @@ We could imagine having a gamepad or a remote controller firing those events.
 
 ## Others ressources used
 
-- [Programmatic focus navigation](https://docs.microsoft.com/en-us/windows/uwp/design/input/focus-navigation-programmatic);
+- [Keyboard interactions](https://docs.microsoft.com/en-us/windows/uwp/design/input/keyboard-interactions);
 - [useHooks](https://usehooks.com/) is an amazing list of recipes;
 - [use-sound](https://github.com/joshwcomeau/use-sound) to add sounds to you app;
 - [Better Keyboard Buttons in CSS](https://shkspr.mobi/blog/2020/05/better-keyboard-buttons-in-html/);
