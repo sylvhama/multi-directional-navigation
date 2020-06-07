@@ -1,7 +1,7 @@
 {
   "name": "multi-directional-navigation",
   "version": "1.0.0",
-  "description": "Focus an element based on a direction input: ⇦ ⇧ ⇨ ⇩",
+  "description": "Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩",
   "keywords": [],
   "main": "src/index.tsx",
   "author": "Sylvain Hamann",
