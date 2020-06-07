@@ -1,5 +1,7 @@
 # Multi Directional Navigation
 
+[![Build Status](https://travis-ci.com/sylvhama/multi-directional-navigation.svg?branch=master)](https://travis-ci.com/sylvhama/multi-directional-navigation)
+
 <a href="https://multi-directional-navigation.netlify.app"><img alt="Preview" src="https://i.imgur.com/Y3r0vT7.gif" /></a>
 
 Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩
