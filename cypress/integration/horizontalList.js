@@ -1,5 +1,5 @@
 describe("/horizontal-list", () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit("/horizontal-list");
     cy.pressM();
   });
@@ -22,5 +22,19 @@ describe("/horizontal-list", () => {
     cy.focused().should("contain", "B18");
     cy.pressHome();
     cy.focused().should("contain", "B1");
+  });
+
+  it("remembers previous focused id", () => {
+    cy.pressRight().pressRight();
+    cy.focused().should("contain", "B3");
+    cy.pressDown();
+    cy.focused().should("contain", "Source code");
+    cy.pressUp();
+    cy.focused().should("contain", "B3");
+    cy.pressUp();
+    cy.pressRight().pressRight();
+    cy.focused().should("contain", "Modal");
+    cy.pressDown();
+    cy.focused().should("contain", "B3");
   });
 });
