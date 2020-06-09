@@ -9,7 +9,7 @@ Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩
 We could imagine having a gamepad or a remote controller firing those events.
 
  - [Check the demo](https://multi-directional-navigation.netlify.app/)!
- - [Read more](https://dev.to/sylvhama/multi-directional-navigation-31k2) about t;
+ - [Read more](https://dev.to/sylvhama/multi-directional-navigation-31k2) about it;
  - [See the slides](https://github.com/sylvhama/bringing-the-www-to-the-aaa) I've made for Montreal React meetup.
  
 ## Stack
