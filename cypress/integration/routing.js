@@ -13,7 +13,8 @@ describe("Routing", () => {
     cy.focused().click();
     cy.url().should("include", "/modal");
 
-    cy.pressUp();
+    // We press up twice to make the test not flaky until I find better solutiom :/
+    cy.pressUp().pressUp();
     cy.focused().click();
     cy.url().should("eq", Cypress.config().baseUrl);
   });

@@ -1,5 +1,5 @@
 Cypress.Commands.add("pressKey", (key = "") => {
-  cy.focused().type(key, { delay: 250 });
+  cy.focused().type(key, { delay: 200 });
 });
 
 Cypress.Commands.add("pressUp", () => {
