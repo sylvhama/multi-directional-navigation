@@ -37,3 +37,7 @@ We could imagine having a gamepad or a remote controller firing those events.
 - [Emojis as Favicons](https://css-tricks.com/emojis-as-favicons/);
 - [CodeSandbox](https://codesandbox.io/) I first used this to create my project;
 - [Testing Javascript](https://testingjavascript.com/) is a great course.
+
+## More reading
+- [Developing for TVs with React-TV](https://medium.com/@raphamorim/developing-for-tvs-with-react-tv-b5b5204964ef);
+- [Navigating the web with a gamepad](https://www.voorhoede.nl/en/blog/navigating-the-web-with-a-gamepad/).
