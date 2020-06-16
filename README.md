@@ -1,4 +1,4 @@
-# Multi Directional Navigation
+# Multi-Directional Navigation
 
 [![Build Status](https://travis-ci.com/sylvhama/multi-directional-navigation.svg?branch=master)](https://travis-ci.com/sylvhama/multi-directional-navigation)
 
