@@ -40,4 +40,5 @@ We could imagine having a gamepad or a remote controller firing those events.
 
 ## More reading
 - [Developing for TVs with React-TV](https://medium.com/@raphamorim/developing-for-tvs-with-react-tv-b5b5204964ef);
+- [Crafting a high-performance TV user interface using React](https://netflixtechblog.com/crafting-a-high-performance-tv-user-interface-using-react-3350e5a6ad3b);
 - [Navigating the web with a gamepad](https://www.voorhoede.nl/en/blog/navigating-the-web-with-a-gamepad/).
