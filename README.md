@@ -25,7 +25,8 @@ We could imagine having a gamepad or a remote controller firing those events.
 
 - [Hooks](https://reactjs.org/docs/hooks-intro.html), especialy [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer);
 - [Context](https://reactjs.org/docs/context.html);
-- [Callback Refs](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs).
+- [Callback Refs](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs);
+- Self promotion: I've also made a [guide to learn modern JS and React](https://github.com/sylvhama/modern-js).
 
 ## Others ressources used
 
