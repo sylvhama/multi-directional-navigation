@@ -6,7 +6,7 @@
   "main": "src/index.tsx",
   "author": "Sylvain Hamann",
   "dependencies": {
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
