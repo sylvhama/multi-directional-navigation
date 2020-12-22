@@ -42,10 +42,10 @@ describe("findClosestNeighborId", () => {
   });
 
   it.each([
-    [Direction.Top, "topElement"],
+    [Direction.Up, "upElement"],
     [Direction.Right, "rightElement"],
     [Direction.Left, "leftElement"],
-    [Direction.Bottom, "bottomElement"],
+    [Direction.Down, "downElement"],
   ])("returns neighbor id", (direction: Direction, idToFind: string) => {
     const origin = createElement({
       depth: 0,
@@ -54,8 +54,8 @@ describe("findClosestNeighborId", () => {
       top: 2,
       bottom: 4,
     });
-    const topElement = createElement({
-      id: "topElement",
+    const upElement = createElement({
+      id: "upElement",
       depth: 0,
       left: 2,
       right: 4,
@@ -70,8 +70,8 @@ describe("findClosestNeighborId", () => {
       top: 2,
       bottom: 4,
     });
-    const bottomElement = createElement({
-      id: "bottomElement",
+    const downElement = createElement({
+      id: "downElement",
       depth: 0,
       left: 2,
       right: 4,
@@ -89,7 +89,7 @@ describe("findClosestNeighborId", () => {
 
     expect(
       findClosestNeighborId(
-        [origin, topElement, rightElement, bottomElement, leftElement],
+        [origin, upElement, rightElement, downElement, leftElement],
         direction,
         origin
       )
@@ -97,10 +97,10 @@ describe("findClosestNeighborId", () => {
   });
 
   it.each([
-    [Direction.Top, "topElement"],
+    [Direction.Up, "upElement"],
     [Direction.Right, "rightElement"],
     [Direction.Left, "leftElement"],
-    [Direction.Bottom, "bottomElement"],
+    [Direction.Down, "downElement"],
   ])(
     "returns closest neighbor id",
     (direction: Direction, idToFind: string) => {
@@ -111,8 +111,8 @@ describe("findClosestNeighborId", () => {
         top: 2,
         bottom: 4,
       });
-      const topElement = createElement({
-        id: "topElement",
+      const upElement = createElement({
+        id: "upElement",
         depth: 0,
         left: 2,
         right: 4,
@@ -143,8 +143,8 @@ describe("findClosestNeighborId", () => {
         top: 2,
         bottom: 4,
       });
-      const bottomElement = createElement({
-        id: "bottomElement",
+      const downElement = createElement({
+        id: "downElement",
         depth: 0,
         left: 2,
         right: 4,
@@ -184,9 +184,9 @@ describe("findClosestNeighborId", () => {
             rightElement2,
             bottomElement2,
             leftElement2,
-            topElement,
+            upElement,
             rightElement,
-            bottomElement,
+            downElement,
             leftElement,
           ],
           direction,
@@ -197,10 +197,10 @@ describe("findClosestNeighborId", () => {
   );
 
   it.each([
-    [Direction.Top, "topElement"],
+    [Direction.Up, "upElement"],
     [Direction.Right, "rightElement"],
     [Direction.Left, "leftElement"],
-    [Direction.Bottom, "bottomElement"],
+    [Direction.Down, "downElement"],
   ])(
     "returns neighbor id when two elements have same distance from origin",
     (direction: Direction, idToFind: string) => {
@@ -211,8 +211,8 @@ describe("findClosestNeighborId", () => {
         top: 2,
         bottom: 4,
       });
-      const topElement = createElement({
-        id: "topElement",
+      const upElement = createElement({
+        id: "upElement",
         depth: 0,
         left: 2,
         right: 4,
@@ -243,8 +243,8 @@ describe("findClosestNeighborId", () => {
         top: 2,
         bottom: 4,
       });
-      const bottomElement = createElement({
-        id: "bottomElement",
+      const downElement = createElement({
+        id: "downElement",
         depth: 0,
         left: 2,
         right: 4,
@@ -284,9 +284,9 @@ describe("findClosestNeighborId", () => {
             rightElement2,
             bottomElement2,
             leftElement2,
-            topElement,
+            upElement,
             rightElement,
-            bottomElement,
+            downElement,
             leftElement,
           ],
           direction,
