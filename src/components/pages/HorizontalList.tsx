@@ -11,7 +11,7 @@ import {
 
 import { scrollIntoView, createElements } from "utils";
 
-const elements = createElements(20, 'B');
+const elements = createElements(20, "B");
 
 type Props = {
   isKeyPressed: boolean;
@@ -23,11 +23,11 @@ export default function HorizontalList({ isKeyPressed }: Props) {
   const focus = useFocus();
   const getTabIndex = useTabindex();
 
-  useKeyboardListener("keyup", ({ keyCode }) => {
-    switch (keyCode) {
-      case 35: // end
+  useKeyboardListener("keyup", ({ key }) => {
+    switch (key) {
+      case "End":
         return focus(elements[elements.length - 1].id);
-      case 36: // home
+      case "Home":
         return focus(elements[0].id);
     }
   });
@@ -52,8 +52,8 @@ export default function HorizontalList({ isKeyPressed }: Props) {
             console.log(`You've focused element ${element.id}.`);
           }}
           onBlur={() => console.log(`You've blured element ${element.id}.`)}
-          onKeyDown={({ keyCode }) =>
-            keyCode === 13 &&
+          onKeyDown={({ key }) =>
+            key === "Enter" &&
             console.log(`You've pressed ↵ on element ${element.id}.`)
           }
         >

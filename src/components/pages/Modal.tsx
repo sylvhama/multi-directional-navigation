@@ -124,7 +124,7 @@ export default function Modal() {
           ref={(button: HTMLElement | null) =>
             insertFocus(IDs.Open, true, button)
           }
-          onKeyDown={({ keyCode }) => keyCode === 13 && setOpen(true)}
+          onKeyDown={({ key }) => key === "Enter" && setOpen(true)}
         >
           Open modal
         </Button>
@@ -153,7 +153,7 @@ function Dialog({ onClose }: DialogProps) {
           ref={(button: HTMLElement | null) =>
             insertFocus(IDs.Nothing, true, button, undefined, 1)
           }
-          onKeyDown={({ keyCode }) => keyCode === 13 && playErrorSound()}
+          onKeyDown={({ key }) => key === "Enter" && playErrorSound()}
         >
           <span role="img" aria-label="Don't click one me">
             ⚠️
@@ -165,7 +165,7 @@ function Dialog({ onClose }: DialogProps) {
           ref={(button: HTMLElement | null) =>
             insertFocus(IDs.Close, false, button, undefined, 1)
           }
-          onKeyDown={({ keyCode }) => keyCode === 13 && onClose()}
+          onKeyDown={({ key }) => key === "Enter" && onClose()}
         >
           Close modal
         </Button>

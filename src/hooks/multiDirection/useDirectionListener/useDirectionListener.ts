@@ -6,13 +6,18 @@ import { useKeyboardListener, useMultiDirectionContext, useFocus } from "hooks";
 
 export enum Direction {
   Left = "Left",
-  Top = "Top",
+  Up = "Up",
   Right = "Right",
-  Bottom = "Bottom",
+  Down = "Down",
 }
 
 export function useDirectionListener(
-  keys = { left: 37, top: 38, right: 39, bottom: 40 },
+  keys = {
+    left: "ArrowLeft",
+    up: "ArrowUp",
+    right: "ArrowRight",
+    down: "ArrowDown",
+  },
   throttleValue = 150,
   element?: Window | HTMLElement,
   findDestination = findClosestNeighborId
@@ -21,11 +26,11 @@ export function useDirectionListener(
   const { elements, currentFocusedId } = useMultiDirectionContext();
   const focus = useFocus();
 
-  const { left, top, right, bottom } = keys;
+  const { left, up, right, down } = keys;
 
   const handler: Handler = React.useCallback(
     (event) => {
-      const direction = getDirection(event.keyCode, left, top, right, bottom);
+      const direction = getDirection(event.key, left, up, right, down);
 
       if (!direction) {
         return setRepeat(false);
@@ -47,9 +52,9 @@ export function useDirectionListener(
     },
     [
       left,
-      top,
+      up,
       right,
-      bottom,
+      down,
       focus,
       elements,
       currentFocusedId,
@@ -63,21 +68,21 @@ export function useDirectionListener(
 }
 
 function getDirection(
-  keyCode: number,
-  left: number,
-  top: number,
-  right: number,
-  bottom: number
+  key: KeyboardEvent["key"],
+  left: KeyboardEvent["key"],
+  up: KeyboardEvent["key"],
+  right: KeyboardEvent["key"],
+  down: KeyboardEvent["key"]
 ) {
-  switch (keyCode) {
+  switch (key) {
     case left:
       return Direction.Left;
-    case top:
-      return Direction.Top;
+    case up:
+      return Direction.Up;
     case right:
       return Direction.Right;
-    case bottom:
-      return Direction.Bottom;
+    case down:
+      return Direction.Down;
     default:
       return null;
   }

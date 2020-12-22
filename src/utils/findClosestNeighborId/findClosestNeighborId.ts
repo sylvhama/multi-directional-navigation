@@ -35,7 +35,7 @@ export function findClosestNeighborId(
             }
           }
           break;
-        case Direction.Top:
+        case Direction.Up:
           if (
             origin.top >= element.bottom &&
             origin.left <= element.right &&
@@ -78,7 +78,7 @@ export function findClosestNeighborId(
             }
           }
           break;
-        case Direction.Bottom:
+        case Direction.Down:
           if (
             origin.bottom <= element.top &&
             origin.left <= element.right &&

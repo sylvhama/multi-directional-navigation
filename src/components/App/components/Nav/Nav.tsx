@@ -41,7 +41,7 @@ export function Nav() {
         }
       }}
       onKeyDown={(event) => {
-        if (lastFocusedIdOutsideNav && event.keyCode === 40) {
+        if (lastFocusedIdOutsideNav && event.key === "ArrowDown") {
           event.stopPropagation();
           focus(lastFocusedIdOutsideNav);
         }

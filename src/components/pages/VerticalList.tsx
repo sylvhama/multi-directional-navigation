@@ -5,7 +5,7 @@ import { useInsertFocusRemove, useCurrentFocusedId, useTabindex } from "hooks";
 
 import { scrollIntoView, createElements } from "utils";
 
-const elements = createElements(14, 'A');
+const elements = createElements(14, "A");
 
 type Props = {
   isKeyPressed: boolean;
@@ -29,8 +29,8 @@ export default function VerticalList({ isKeyPressed }: Props) {
             console.log(`You've focused element ${element.id}.`);
           }}
           onBlur={() => console.log(`You've blured element ${element.id}.`)}
-          onKeyDown={({ keyCode }) =>
-            keyCode === 13 &&
+          onKeyDown={({ key }) =>
+            key === "Enter" &&
             console.log(`You've pressed ↵ on element ${element.id}.`)
           }
         >

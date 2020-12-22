@@ -33,5 +33,5 @@ export function useKeyboardListener(
 }
 
 function isKeyboardEvent(event: Event): event is KeyboardEvent {
-  return "keyCode" in event;
+  return "key" in event;
 }

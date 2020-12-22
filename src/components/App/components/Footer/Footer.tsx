@@ -35,7 +35,7 @@ export function Footer() {
           }
           href="https://github.com/sylvhama/multi-directional-navigation"
           onKeyDown={(event) => {
-            if (lastFocusedIdOutsideFooter && event.keyCode === 38) {
+            if (lastFocusedIdOutsideFooter && event.key === "ArrowUp") {
               event.stopPropagation();
               focus(lastFocusedIdOutsideFooter);
             }

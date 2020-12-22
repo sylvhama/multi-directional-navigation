@@ -19,9 +19,9 @@ export function App() {
   const [playMoveSound] = useSound(moveSound);
   const [isMuted, setIsMuted] = useIsMuted();
 
-  useKeyboardListener("keyup", ({ keyCode }) => {
-    switch (keyCode) {
-      case 77: // M
+  useKeyboardListener("keyup", ({ key }) => {
+    switch (key) {
+      case "m":
         return setIsMuted(!isMuted);
     }
   });
