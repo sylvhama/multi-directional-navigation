@@ -57,4 +57,16 @@ describe("Custom keys", () => {
       cy.focused().should("contain", "B1");
     });
   });
+
+  context("interact", () => {
+    before(() => {
+      cy.visit("/modal?interact=1");
+      cy.pressM();
+    });
+
+    it("navigates within the page", () => {
+      cy.pressKey("1");
+      cy.focused().should("contain", "⚠️");
+    });
+  });
 });
