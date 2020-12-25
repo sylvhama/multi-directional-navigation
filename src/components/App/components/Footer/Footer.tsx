@@ -6,6 +6,7 @@ import {
   useFocus,
   useTabindex,
   useRememberFocusedId,
+  useKeys,
 } from "hooks";
 
 import { Anchor } from "./components";
@@ -18,6 +19,7 @@ export function Footer() {
   const focus = useFocus();
   const getTabIndex = useTabindex();
   const lastFocusedIdOutsideFooter = useRememberFocusedId([id]);
+  const keys = useKeys();
 
   return (
     <footer>
@@ -35,7 +37,7 @@ export function Footer() {
           }
           href="https://github.com/sylvhama/multi-directional-navigation"
           onKeyDown={(event) => {
-            if (lastFocusedIdOutsideFooter && event.key === "ArrowUp") {
+            if (lastFocusedIdOutsideFooter && event.key === keys.up) {
               event.stopPropagation();
               focus(lastFocusedIdOutsideFooter);
             }

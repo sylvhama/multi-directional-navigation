@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
-import { useIsMuted } from "hooks";
+import { useIsMuted, useKeys } from "hooks";
 import { Kbd } from "components/shared";
 
 const Legend = styled.ul`
@@ -14,26 +14,31 @@ const Legend = styled.ul`
 `;
 
 export function Header() {
+  const keys = useKeys();
   const [isMuted] = useIsMuted();
   return (
     <header>
       <h1>Multi-directional Navigation</h1>
-      
+
       <Legend>
         <li data-testid="navigate">
-          <Kbd>←</Kbd> <Kbd>↑</Kbd> <Kbd>→</Kbd> <Kbd>↓</Kbd> navigate
+          <Kbd>{keyToDisplay(keys.left)}</Kbd>{" "}
+          <Kbd>{keyToDisplay(keys.up)}</Kbd>{" "}
+          <Kbd>{keyToDisplay(keys.right)}</Kbd>{" "}
+          <Kbd>{keyToDisplay(keys.down)}</Kbd> navigate
         </li>
         <li data-testid="interact">
-          <Kbd>↵</Kbd> interact
+          <Kbd>{keyToDisplay(keys.interact)}</Kbd> interact
         </li>
         <li data-testid="mute">
-          <Kbd>M</Kbd> {isMuted ? "unmute" : "mute"}
+          <Kbd>{keyToDisplay(keys.mute)}</Kbd> {isMuted ? "unmute" : "mute"}
         </li>
         <Route
           path="/horizontal-list"
           render={() => (
             <li data-testid="skip">
-              <Kbd>home</Kbd> / <Kbd>end</Kbd> fast skip
+              <Kbd>{keyToDisplay(keys.leftSkip)}</Kbd> /{" "}
+              <Kbd>{keyToDisplay(keys.rightSkip)}</Kbd> fast skip
             </li>
           )}
         />
@@ -54,4 +59,22 @@ export function Header() {
       </Switch>
     </header>
   );
+}
+
+type Symbols = {
+  [key: string]: string;
+};
+
+function keyToDisplay(key: string) {
+  const symbols: Symbols = {
+    ArrowUp: "↑",
+    ArrowRight: "→",
+    ArrowDown: "↓",
+    ArrowLeft: "←",
+    Enter: "↵",
+    Home: "home",
+    End: "end",
+  };
+
+  return symbols[key] || key;
 }

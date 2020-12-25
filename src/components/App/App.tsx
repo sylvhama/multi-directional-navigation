@@ -2,6 +2,7 @@ import React from "react";
 
 import { Layout, Header, Nav, Main, Footer, GlobalStyle } from "./components";
 import {
+  useKeys,
   useDirectionListener,
   useCurrentFocusedId,
   usePrevious,
@@ -13,7 +14,8 @@ import {
 const moveSound = require("sounds/move.mp3");
 
 export function App() {
-  const isKeyPressed = useDirectionListener();
+  const keys = useKeys();
+  const isKeyPressed = useDirectionListener(keys);
   const currentFocusedId = useCurrentFocusedId();
   const previousFocusedId = usePrevious(currentFocusedId);
   const [playMoveSound] = useSound(moveSound);
@@ -21,7 +23,7 @@ export function App() {
 
   useKeyboardListener("keyup", ({ key }) => {
     switch (key) {
-      case "m":
+      case keys.mute:
         return setIsMuted(!isMuted);
     }
   });

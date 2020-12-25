@@ -6,6 +6,7 @@ import {
   useFocus,
   useTabindex,
   useRememberFocusedId,
+  useKeys,
 } from "hooks";
 
 import { List, StyledNavLink } from "./components";
@@ -23,6 +24,7 @@ export function Nav() {
   const focus = useFocus();
   const getTabIndex = useTabindex();
   const lastFocusedIdOutsideNav = useRememberFocusedId(Object.keys(IDs));
+  const keys = useKeys();
 
   return (
     <nav
@@ -41,7 +43,7 @@ export function Nav() {
         }
       }}
       onKeyDown={(event) => {
-        if (lastFocusedIdOutsideNav && event.key === "ArrowDown") {
+        if (lastFocusedIdOutsideNav && event.key === keys.down) {
           event.stopPropagation();
           focus(lastFocusedIdOutsideNav);
         }

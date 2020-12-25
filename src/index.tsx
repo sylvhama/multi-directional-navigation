@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { MultiDirectionProvider } from "./contexts/MultiDirection";
-import { MuteProvider } from "./contexts/Mute";
+import { MultiDirectionProvider, MuteProvider, KeysProvider } from "contexts";
 import { App } from "./components/App";
 
 const rootElement = document.getElementById("root");
@@ -12,7 +11,9 @@ ReactDOM.render(
     <Router>
       <MultiDirectionProvider>
         <MuteProvider>
-          <App />
+          <KeysProvider>
+            <App />
+          </KeysProvider>
         </MuteProvider>
       </MultiDirectionProvider>
     </Router>

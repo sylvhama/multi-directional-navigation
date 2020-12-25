@@ -1,7 +1,12 @@
 import React from "react";
 import { Square, VerticalGrid } from "components/shared";
 
-import { useInsertFocusRemove, useCurrentFocusedId, useTabindex } from "hooks";
+import {
+  useInsertFocusRemove,
+  useCurrentFocusedId,
+  useTabindex,
+  useKeys,
+} from "hooks";
 
 import { scrollIntoView, createElements } from "utils";
 
@@ -15,6 +20,7 @@ export default function VerticalList({ isKeyPressed }: Props) {
   const currentFocusedId = useCurrentFocusedId();
   const insertFocus = useInsertFocusRemove();
   const getTabIndex = useTabindex();
+  const keys = useKeys();
 
   return (
     <VerticalGrid rows={Math.ceil(elements.length / 3)}>
@@ -30,8 +36,8 @@ export default function VerticalList({ isKeyPressed }: Props) {
           }}
           onBlur={() => console.log(`You've blured element ${element.id}.`)}
           onKeyDown={({ key }) =>
-            key === "Enter" &&
-            console.log(`You've pressed ↵ on element ${element.id}.`)
+            key === keys.interact &&
+            console.log(`You've interacted with element ${element.id}.`)
           }
         >
           {element.id}

@@ -7,6 +7,7 @@ import {
   useTabindex,
   useFocus,
   useSound,
+  useKeys,
 } from "hooks";
 
 import { IsFocusedProps } from "components/shared/types";
@@ -106,6 +107,7 @@ export default function Modal() {
   const insertFocus = useInsertFocusRemove();
   const getTabIndex = useTabindex();
   const focus = useFocus();
+  const keys = useKeys();
 
   return (
     <>
@@ -124,7 +126,7 @@ export default function Modal() {
           ref={(button: HTMLElement | null) =>
             insertFocus(IDs.Open, true, button)
           }
-          onKeyDown={({ key }) => key === "Enter" && setOpen(true)}
+          onKeyDown={({ key }) => key === keys.interact && setOpen(true)}
         >
           Open modal
         </Button>
@@ -141,6 +143,7 @@ function Dialog({ onClose }: DialogProps) {
   const currentFocusedId = useCurrentFocusedId();
   const insertFocus = useInsertFocusRemove();
   const getTabIndex = useTabindex();
+  const keys = useKeys();
 
   const [playErrorSound] = useSound(errorSound);
 
@@ -153,7 +156,7 @@ function Dialog({ onClose }: DialogProps) {
           ref={(button: HTMLElement | null) =>
             insertFocus(IDs.Nothing, true, button, undefined, 1)
           }
-          onKeyDown={({ key }) => key === "Enter" && playErrorSound()}
+          onKeyDown={({ key }) => key === keys.interact && playErrorSound()}
         >
           <span role="img" aria-label="Don't click one me">
             ⚠️
@@ -165,7 +168,7 @@ function Dialog({ onClose }: DialogProps) {
           ref={(button: HTMLElement | null) =>
             insertFocus(IDs.Close, false, button, undefined, 1)
           }
-          onKeyDown={({ key }) => key === "Enter" && onClose()}
+          onKeyDown={({ key }) => key === keys.interact && onClose()}
         >
           Close modal
         </Button>

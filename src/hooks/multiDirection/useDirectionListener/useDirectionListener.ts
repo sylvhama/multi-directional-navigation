@@ -3,6 +3,7 @@ import React from "react";
 import { findClosestNeighborId } from "utils/findClosestNeighborId";
 import { Handler } from "hooks/general/useKeyboardListener/types";
 import { useKeyboardListener, useMultiDirectionContext, useFocus } from "hooks";
+import { DirectionKeys } from "contexts/Keys/types";
 
 export enum Direction {
   Left = "Left",
@@ -12,21 +13,14 @@ export enum Direction {
 }
 
 export function useDirectionListener(
-  keys = {
-    left: "ArrowLeft",
-    up: "ArrowUp",
-    right: "ArrowRight",
-    down: "ArrowDown",
-  },
+  { left, up, right, down }: DirectionKeys,
   throttleValue = 150,
-  element?: Window | HTMLElement,
-  findDestination = findClosestNeighborId
+  findDestination = findClosestNeighborId,
+  element?: Window | HTMLElement
 ) {
   const [repeat, setRepeat] = React.useState(false);
   const { elements, currentFocusedId } = useMultiDirectionContext();
   const focus = useFocus();
-
-  const { left, up, right, down } = keys;
 
   const handler: Handler = React.useCallback(
     (event) => {
@@ -50,16 +44,7 @@ export function useDirectionListener(
         focus(nextFocusId);
       }
     },
-    [
-      left,
-      up,
-      right,
-      down,
-      focus,
-      elements,
-      currentFocusedId,
-      findDestination,
-    ]
+    [left, up, right, down, focus, elements, currentFocusedId, findDestination]
   );
 
   useKeyboardListener("keydown", handler, element, throttleValue);
@@ -69,10 +54,10 @@ export function useDirectionListener(
 
 function getDirection(
   key: KeyboardEvent["key"],
-  left: KeyboardEvent["key"],
-  up: KeyboardEvent["key"],
-  right: KeyboardEvent["key"],
-  down: KeyboardEvent["key"]
+  left: string,
+  up: string,
+  right: string,
+  down: string
 ) {
   switch (key) {
     case left:

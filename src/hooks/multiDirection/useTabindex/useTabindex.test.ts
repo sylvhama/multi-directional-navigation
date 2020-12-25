@@ -4,7 +4,7 @@ import { renderMultiDirectionHook } from "../../../test-helpers";
 
 jest.mock("../../general", () => {
   return {
-    ...require.requireActual("../../general"),
+    ...jest.requireActual("../../general"),
     usePrevious: jest.fn(),
   };
 });
