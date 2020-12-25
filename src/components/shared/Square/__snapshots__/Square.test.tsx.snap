@@ -20,14 +20,14 @@ exports[`<Square /> renders style when isFocused is false 1`] = `
   color: #212b36;
 }
 
-.c0:after {
+.c1:after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
 
 <article
-  class="sc-AxjAm c0"
+  class="c0 c1"
 />
 `;
 
@@ -54,13 +54,13 @@ exports[`<Square /> renders style when isFocused is true 1`] = `
   font-weight: bold;
 }
 
-.c0:after {
+.c1:after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
 
 <article
-  class="sc-AxjAm c0"
+  class="c0 c1"
 />
 `;

@@ -18,6 +18,9 @@ exports[`<Card /> renders style when isFocused is false 1`] = `
   font-size: 4rem;
   background-color: #dfe3e8;
   color: #212b36;
+}
+
+.c1 {
   position: relative;
   -webkit-transform: scale(0.7);
   -ms-transform: scale(0.7);
@@ -30,7 +33,7 @@ exports[`<Card /> renders style when isFocused is false 1`] = `
   transition: transform ease 250ms;
 }
 
-.c0:last-child:after {
+.c1:last-child:after {
   content: "";
   position: absolute;
   right: -100%;
@@ -39,7 +42,7 @@ exports[`<Card /> renders style when isFocused is false 1`] = `
 }
 
 <article
-  class="sc-AxjAm c0"
+  class="c0 c1"
 />
 `;
 
@@ -64,6 +67,9 @@ exports[`<Card /> renders style when isFocused is true 1`] = `
   border-color: #006FBB;
   background-color: #F9FAFB;
   font-weight: bold;
+}
+
+.c1 {
   position: relative;
   -webkit-transform: scale(0.7);
   -ms-transform: scale(0.7);
@@ -79,7 +85,7 @@ exports[`<Card /> renders style when isFocused is true 1`] = `
   transform: scale(1);
 }
 
-.c0:last-child:after {
+.c1:last-child:after {
   content: "";
   position: absolute;
   right: -100%;
@@ -88,6 +94,6 @@ exports[`<Card /> renders style when isFocused is true 1`] = `
 }
 
 <article
-  class="sc-AxjAm c0"
+  class="c0 c1"
 />
 `;
