@@ -18,7 +18,7 @@ export function App() {
   const isKeyPressed = useDirectionListener(keys);
   const currentFocusedId = useCurrentFocusedId();
   const previousFocusedId = usePrevious(currentFocusedId);
-  const [playMoveSound] = useSound(moveSound);
+  const [playMoveSound] = useSound(moveSound.default);
   const [isMuted, setIsMuted] = useIsMuted();
 
   useKeyboardListener("keyup", ({ key }) => {

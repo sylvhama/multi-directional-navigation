@@ -145,7 +145,7 @@ function Dialog({ onClose }: DialogProps) {
   const getTabIndex = useTabindex();
   const keys = useKeys();
 
-  const [playErrorSound] = useSound(errorSound);
+  const [playErrorSound] = useSound(errorSound.default);
 
   return (
     <ModalWrapper>
