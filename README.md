@@ -4,13 +4,11 @@
 
 <a href="https://multi-directional-navigation.netlify.app"><img alt="Preview" src="https://i.imgur.com/Y3r0vT7.gif" /></a>
 
-Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩ (you can change keys via the query parameters)
+Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩ (you can change keys via the query parameters).
 
-or connect a gamepad ([partial support](https://github.com/sylvhama/multi-directional-navigation/issues/7))
+You can also connect a gamepad ([partial support](https://github.com/sylvhama/multi-directional-navigation/issues/7)).
 
-or simply speak!
-
-We could imagine having a gamepad or a remote controller firing those events.
+If you enable your microphone you will be able to use your voice as well!
 
 - [Check the demo](https://multi-directional-navigation.netlify.app/)!
 - [Read more](https://dev.to/sylvhama/multi-directional-navigation-31k2) about it;
