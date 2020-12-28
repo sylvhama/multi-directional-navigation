@@ -4,16 +4,18 @@
 
 <a href="https://multi-directional-navigation.netlify.app"><img alt="Preview" src="https://i.imgur.com/Y3r0vT7.gif" /></a>
 
-Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩
+Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩ (you can change keys via the query parameters)
 
-Or connect a gamepad ([partial support](https://github.com/sylvhama/multi-directional-navigation/issues/7)).
+or connect a gamepad ([partial support](https://github.com/sylvhama/multi-directional-navigation/issues/7))
+
+or simply speak!
 
 We could imagine having a gamepad or a remote controller firing those events.
 
- - [Check the demo](https://multi-directional-navigation.netlify.app/)!
- - [Read more](https://dev.to/sylvhama/multi-directional-navigation-31k2) about it;
- - [See the slides](https://github.com/sylvhama/bringing-the-www-to-the-aaa) I've made for Montreal React meetup.
- 
+- [Check the demo](https://multi-directional-navigation.netlify.app/)!
+- [Read more](https://dev.to/sylvhama/multi-directional-navigation-31k2) about it;
+- [See the slides](https://github.com/sylvhama/bringing-the-www-to-the-aaa) I've made for Montreal React meetup.
+
 ## Stack
 
 - The project was bootstraped via [create-react-app](https://create-react-app.dev/), it uses webpack, Babel, ESLint and Jest under the hood. I also added TypeScript.
@@ -42,6 +44,7 @@ We could imagine having a gamepad or a remote controller firing those events.
 - [Testing Javascript](https://testingjavascript.com/) is a great course.
 
 ## More reading
+
 - [Developing for TVs with React-TV](https://medium.com/@raphamorim/developing-for-tvs-with-react-tv-b5b5204964ef);
 - [Crafting a high-performance TV user interface using React](https://netflixtechblog.com/crafting-a-high-performance-tv-user-interface-using-react-3350e5a6ad3b);
 - [Navigating the web with a gamepad](https://www.voorhoede.nl/en/blog/navigating-the-web-with-a-gamepad/).

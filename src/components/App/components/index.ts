@@ -1,3 +1,4 @@
+export { Dictaphone } from "./Dictaphone";
 export { Footer } from "./Footer";
 export { Gamepad } from "./Gamepad";
 export { GlobalStyle } from "./GlobalStyle";

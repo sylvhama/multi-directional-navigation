@@ -7,6 +7,7 @@ import {
   Main,
   Footer,
   Gamepad,
+  Dictaphone,
   GlobalStyle,
 } from "./components";
 import {
@@ -53,6 +54,7 @@ export function App() {
         <Footer />
       </Layout>
       <Gamepad toggleMute={toggleMute} />
+      <Dictaphone toggleMute={toggleMute} />
       <GlobalStyle />
     </>
   );

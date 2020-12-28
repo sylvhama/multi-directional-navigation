@@ -15,11 +15,18 @@ jest.mock("../../../../hooks", () => {
   };
 });
 
+jest.mock("react-speech-recognition", () => {
+  return {
+    browserSupportsSpeechRecognition: jest.fn(),
+  };
+});
+
 describe("<Header />", () => {
   beforeEach(() => {
     mockUseKeys();
     mockUseIsMuted(false);
     mockUseGamepad(false);
+    mockSpeech();
   });
 
   it("renders texts that are always visible", () => {
@@ -57,6 +64,22 @@ describe("<Header />", () => {
     const { queryByTestId } = render(<Header />);
 
     expect(queryByTestId("gamepad")).not.toBeInTheDocument();
+  });
+
+  it("renders message when speech is supported", () => {
+    mockSpeech(true);
+    const { queryByTestId } = render(<Header />);
+
+    expect(queryByTestId("speak")).toHaveTextContent(
+      "🗣️ Try to say up, down, left, right, click or focus [id]"
+    );
+  });
+
+  it("does not render message when speech is not supported", () => {
+    mockSpeech(false);
+    const { queryByTestId } = render(<Header />);
+
+    expect(queryByTestId("speak")).not.toBeInTheDocument();
   });
 
   it("renders message when route is /", () => {
@@ -128,4 +151,12 @@ function mockUseGamepad(hasGamepad = false) {
     .useGamepad;
 
   useGamepad.mockReturnValue(hasGamepad ? {} : null);
+}
+
+function mockSpeech(returnValue = true) {
+  const browserSupportsSpeechRecognition: jest.Mock = jest.requireMock(
+    "react-speech-recognition"
+  ).browserSupportsSpeechRecognition;
+
+  browserSupportsSpeechRecognition.mockReturnValue(returnValue);
 }

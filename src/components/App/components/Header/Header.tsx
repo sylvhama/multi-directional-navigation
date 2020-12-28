@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-
+import SpeechRecognition from "react-speech-recognition";
 import { useIsMuted, useKeys, useGamepad } from "hooks";
 import { Kbd } from "components/shared";
 
@@ -23,6 +23,8 @@ export function Header() {
   const keys = useKeys();
   const [isMuted] = useIsMuted();
   const gamepad = useGamepad();
+
+  const browserSupportsSpeechRecognition = SpeechRecognition.browserSupportsSpeechRecognition();
 
   return (
     <Wrapper>
@@ -58,6 +60,16 @@ export function Header() {
             🎮
           </span>{" "}
           Gamepad support is partial
+        </p>
+      )}
+
+      {browserSupportsSpeechRecognition && (
+        <p data-testid="speak">
+          <span role="img" aria-label="Keywords you can say:">
+            🗣️
+          </span>{" "}
+          Try to say <em>up</em>, <em>down</em>, <em>left</em>, <em>right</em>,{" "}
+          <em>click</em> or <em>focus [id]</em>
         </p>
       )}
 
