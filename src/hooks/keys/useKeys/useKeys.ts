@@ -1,7 +1,7 @@
-import { useKeysContext } from "hooks";
+import React from "react";
 import { Keys } from "contexts/Keys/types";
+import { KeysContext } from "contexts/Keys";
 
 export function useKeys(): Keys {
-  const { keys } = useKeysContext();
-  return keys;
+  return React.useContext(KeysContext);
 }
