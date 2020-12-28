@@ -6,9 +6,7 @@
 
 Navigate in any direction via your keyboard and its arrow keys ⇦ ⇧ ⇨ ⇩
 
-Or connect a gamepad ([partial support](https://github.com/sylvhama/multi-directional-navigation/issues/7)).
-
-We could imagine having a gamepad or a remote controller firing those events.
+You can also connect a gamepad ([partial support](https://github.com/sylvhama/multi-directional-navigation/issues/7)).
 
  - [Check the demo](https://multi-directional-navigation.netlify.app/)!
  - [Read more](https://dev.to/sylvhama/multi-directional-navigation-31k2) about it;
