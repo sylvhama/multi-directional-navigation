@@ -2,11 +2,17 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
-import { useIsMuted, useKeys } from "hooks";
+import { useIsMuted, useKeys, useGamepad } from "hooks";
 import { Kbd } from "components/shared";
 
+const Wrapper = styled.header`
+  ul,
+  p {
+    padding: 0.25rem 0;
+  }
+`;
+
 const Legend = styled.ul`
-  padding-bottom: 1rem;
   display: grid;
   grid-template-columns: repeat(4, max-content);
   grid-gap: 1rem;
@@ -16,8 +22,10 @@ const Legend = styled.ul`
 export function Header() {
   const keys = useKeys();
   const [isMuted] = useIsMuted();
+  const gamepad = useGamepad();
+
   return (
-    <header>
+    <Wrapper>
       <h1>Multi-directional Navigation</h1>
 
       <Legend>
@@ -44,6 +52,15 @@ export function Header() {
         />
       </Legend>
 
+      {Boolean(gamepad) && (
+        <p>
+          <span role="img" aria-label="About gamepad:">
+            🎮
+          </span>{" "}
+          Gamepad support is partial
+        </p>
+      )}
+
       <Switch>
         <Route path="/modal" />
         <Route
@@ -57,7 +74,7 @@ export function Header() {
           )}
         />
       </Switch>
-    </header>
+    </Wrapper>
   );
 }
 

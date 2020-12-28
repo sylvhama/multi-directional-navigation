@@ -8,6 +8,7 @@ import {
   useFocus,
   useSound,
   useKeys,
+  useGamepad,
 } from "hooks";
 
 import { IsFocusedProps } from "components/shared/types";
@@ -127,6 +128,7 @@ export default function Modal() {
             insertFocus(IDs.Open, true, button)
           }
           onKeyDown={({ key }) => key === keys.interact && setOpen(true)}
+          onClick={() => setOpen(true)}
         >
           Open modal
         </Button>
@@ -144,6 +146,9 @@ function Dialog({ onClose }: DialogProps) {
   const insertFocus = useInsertFocusRemove();
   const getTabIndex = useTabindex();
   const keys = useKeys();
+  const gamepad = useGamepad() || {};
+
+  const { vibrationActuator } = gamepad as any;
 
   const [playErrorSound] = useSound(errorSound.default);
 
@@ -157,6 +162,15 @@ function Dialog({ onClose }: DialogProps) {
             insertFocus(IDs.Nothing, true, button, undefined, 1)
           }
           onKeyDown={({ key }) => key === keys.interact && playErrorSound()}
+          onClick={() => {
+            playErrorSound();
+            vibrationActuator?.playEffect("dual-rumble", {
+              startDelay: 0,
+              duration: 500,
+              weakMagnitude: 1,
+              strongMagnitude: 1,
+            });
+          }}
         >
           <span role="img" aria-label="Don't click one me">
             ⚠️
@@ -169,6 +183,7 @@ function Dialog({ onClose }: DialogProps) {
             insertFocus(IDs.Close, false, button, undefined, 1)
           }
           onKeyDown={({ key }) => key === keys.interact && onClose()}
+          onClick={() => onClose()}
         >
           Close modal
         </Button>

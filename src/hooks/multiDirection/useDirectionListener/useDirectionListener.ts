@@ -1,26 +1,17 @@
 import React from "react";
 
-import { findClosestNeighborId } from "utils/findClosestNeighborId";
 import { Handler } from "hooks/general/useKeyboardListener/types";
-import { useKeyboardListener, useMultiDirectionContext, useFocus } from "hooks";
+import { useKeyboardListener, useFindAndFocus } from "hooks";
+import { Direction } from "contexts/MultiDirection/types";
 import { DirectionKeys } from "contexts/Keys/types";
-
-export enum Direction {
-  Left = "Left",
-  Up = "Up",
-  Right = "Right",
-  Down = "Down",
-}
 
 export function useDirectionListener(
   { left, up, right, down }: DirectionKeys,
   throttleValue = 150,
-  findDestination = findClosestNeighborId,
   element?: Window | HTMLElement
 ) {
   const [repeat, setRepeat] = React.useState(false);
-  const { elements, currentFocusedId } = useMultiDirectionContext();
-  const focus = useFocus();
+  const findAndFocus = useFindAndFocus();
 
   const handler: Handler = React.useCallback(
     (event) => {
@@ -34,17 +25,9 @@ export function useDirectionListener(
 
       setRepeat(event.repeat);
 
-      const nextFocusId = findDestination(
-        Object.values(elements),
-        direction,
-        elements[currentFocusedId || ""]
-      );
-
-      if (nextFocusId) {
-        focus(nextFocusId);
-      }
+      findAndFocus(direction);
     },
-    [left, up, right, down, focus, elements, currentFocusedId, findDestination]
+    [left, up, right, down, findAndFocus]
   );
 
   useKeyboardListener("keydown", handler, element, throttleValue);

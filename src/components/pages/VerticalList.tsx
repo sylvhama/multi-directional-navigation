@@ -39,6 +39,7 @@ export default function VerticalList({ isKeyPressed }: Props) {
             key === keys.interact &&
             console.log(`You've interacted with element ${element.id}.`)
           }
+          onClick={() => console.log(`You've "clicked" on ${element.id}.`)}
         >
           {element.id}
         </Square>

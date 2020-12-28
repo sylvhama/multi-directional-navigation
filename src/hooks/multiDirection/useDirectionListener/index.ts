@@ -1,1 +1,1 @@
-export { useDirectionListener, Direction } from "./useDirectionListener";
+export { useDirectionListener } from "./useDirectionListener";

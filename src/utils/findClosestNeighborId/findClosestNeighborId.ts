@@ -1,5 +1,4 @@
-import { Element } from "contexts/MultiDirection/types";
-import { Direction } from "hooks";
+import { Element, Direction } from "contexts/MultiDirection/types";
 
 export function findClosestNeighborId(
   elements: Element[],

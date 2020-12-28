@@ -1,6 +1,14 @@
 import React from "react";
 
-import { Layout, Header, Nav, Main, Footer, GlobalStyle } from "./components";
+import {
+  Layout,
+  Header,
+  Nav,
+  Main,
+  Footer,
+  Gamepad,
+  GlobalStyle,
+} from "./components";
 import {
   useKeys,
   useDirectionListener,
@@ -21,10 +29,12 @@ export function App() {
   const [playMoveSound] = useSound(moveSound.default);
   const [isMuted, setIsMuted] = useIsMuted();
 
+  const toggleMute = () => setIsMuted(!isMuted);
+
   useKeyboardListener("keyup", ({ key }) => {
     switch (key) {
       case keys.mute:
-        return setIsMuted(!isMuted);
+        return toggleMute();
     }
   });
 
@@ -42,6 +52,7 @@ export function App() {
         <Main isKeyPressed={isKeyPressed} />
         <Footer />
       </Layout>
+      <Gamepad toggleMute={toggleMute} />
       <GlobalStyle />
     </>
   );

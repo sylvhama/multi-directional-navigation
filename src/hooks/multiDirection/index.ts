@@ -1,5 +1,6 @@
 export { useCurrentFocusedId } from "./useCurrentFocusedId";
-export { useDirectionListener, Direction } from "./useDirectionListener";
+export { useDirectionListener } from "./useDirectionListener";
+export { useFindAndFocus } from "./useFindAndFocus";
 export { useFocus } from "./useFocus";
 export { useInsertFocusRemove } from "./useInsertFocusRemove";
 export { useIsInserted } from "./useIsInserted";

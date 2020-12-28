@@ -1,0 +1,1 @@
+export { useGamepad } from "./useGamepad";

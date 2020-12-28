@@ -47,3 +47,10 @@ export type Props = {
   children: React.ReactNode;
   overrideValue?: Partial<MultiDirectionInterface>;
 };
+
+export enum Direction {
+  Left = "Left",
+  Up = "Up",
+  Right = "Right",
+  Down = "Down",
+}
