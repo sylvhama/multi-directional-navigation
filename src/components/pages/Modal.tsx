@@ -78,7 +78,7 @@ const ModalContent = styled.article`
   }
 `;
 
-const Button = styled.button<IsFocusedProps>`
+const Button = styled.div<IsFocusedProps>`
   border: 3px solid white;
   padding: 2rem 4rem;
   font-size: 2rem;
@@ -128,7 +128,10 @@ export default function Modal() {
             insertFocus(IDs.Open, true, button)
           }
           onKeyDown={({ key }) => key === keys.interact && setOpen(true)}
-          onClick={() => setOpen(true)}
+          onClick={(event) => {
+            console.log(event);
+            setOpen(true);
+          }}
         >
           Open modal
         </Button>
