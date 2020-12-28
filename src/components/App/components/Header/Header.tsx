@@ -53,7 +53,7 @@ export function Header() {
       </Legend>
 
       {Boolean(gamepad) && (
-        <p>
+        <p data-testid="gamepad">
           <span role="img" aria-label="About gamepad:">
             🎮
           </span>{" "}

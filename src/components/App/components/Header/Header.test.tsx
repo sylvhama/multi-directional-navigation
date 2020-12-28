@@ -11,6 +11,7 @@ jest.mock("../../../../hooks", () => {
     ...jest.requireActual("../../../../hooks"),
     useKeys: jest.fn(),
     useIsMuted: jest.fn(),
+    useGamepad: jest.fn(),
   };
 });
 
@@ -18,6 +19,7 @@ describe("<Header />", () => {
   beforeEach(() => {
     mockUseKeys();
     mockUseIsMuted(false);
+    mockUseGamepad(false);
   });
 
   it("renders texts that are always visible", () => {
@@ -39,6 +41,22 @@ describe("<Header />", () => {
     const { getByTestId } = render(<Header />);
 
     expect(getByTestId("mute")).toHaveTextContent(text);
+  });
+
+  it("renders message when there is a gamepad connected", () => {
+    mockUseGamepad(true);
+    const { queryByTestId } = render(<Header />);
+
+    expect(queryByTestId("gamepad")).toHaveTextContent(
+      "🎮 Gamepad support is partial"
+    );
+  });
+
+  it("does not render message when there is no gamepad connected", () => {
+    mockUseGamepad(false);
+    const { queryByTestId } = render(<Header />);
+
+    expect(queryByTestId("gamepad")).not.toBeInTheDocument();
   });
 
   it("renders message when route is /", () => {
@@ -95,7 +113,7 @@ describe("<Header />", () => {
 function mockUseKeys(customKeys?: Partial<Keys>) {
   const useKeys: jest.Mock = jest.requireMock("../../../../hooks").useKeys;
 
-  useKeys.mockReturnValue({ ...defaultState.keys, ...customKeys });
+  useKeys.mockReturnValue({ ...defaultState, ...customKeys });
 }
 
 function mockUseIsMuted(returnValue: boolean) {
@@ -103,4 +121,11 @@ function mockUseIsMuted(returnValue: boolean) {
     .useIsMuted;
 
   useIsMuted.mockReturnValue([returnValue, () => {}]);
+}
+
+function mockUseGamepad(hasGamepad = false) {
+  const useGamepad: jest.Mock = jest.requireMock("../../../../hooks")
+    .useGamepad;
+
+  useGamepad.mockReturnValue(hasGamepad ? {} : null);
 }
