@@ -128,10 +128,7 @@ export default function Modal() {
             insertFocus(IDs.Open, true, button)
           }
           onKeyDown={({ key }) => key === keys.interact && setOpen(true)}
-          onClick={(event) => {
-            console.log(event);
-            setOpen(true);
-          }}
+          onClick={() => setOpen(true)}
         >
           Open modal
         </Button>
