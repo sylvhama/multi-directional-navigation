@@ -34,6 +34,7 @@ If you enable your microphone you will be able to use your voice as well!
 
 - [Keyboard interactions](https://docs.microsoft.com/en-us/windows/uwp/design/input/keyboard-interactions);
 - [Keyboard-navigable JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets);
+- [React speach recognition](https://github.com/JamesBrill/react-speech-recognition);
 - [useHooks](https://usehooks.com/) is an amazing list of recipes;
 - [use-sound](https://github.com/joshwcomeau/use-sound) to add sounds to you app (mine are from Final Fantasy VII);
 - [Better Keyboard Buttons in CSS](https://shkspr.mobi/blog/2020/05/better-keyboard-buttons-in-html/);
@@ -45,4 +46,5 @@ If you enable your microphone you will be able to use your voice as well!
 
 - [Developing for TVs with React-TV](https://medium.com/@raphamorim/developing-for-tvs-with-react-tv-b5b5204964ef);
 - [Crafting a high-performance TV user interface using React](https://netflixtechblog.com/crafting-a-high-performance-tv-user-interface-using-react-3350e5a6ad3b);
-- [Navigating the web with a gamepad](https://www.voorhoede.nl/en/blog/navigating-the-web-with-a-gamepad/).
+- [Navigating the web with a gamepad](https://www.voorhoede.nl/en/blog/navigating-the-web-with-a-gamepad/);
+- [How Discord Implemented App-Wide Keyboard Navigation](https://blog.discord.com/how-discord-implemented-app-wide-keyboard-navigation-abf073fd71de).
