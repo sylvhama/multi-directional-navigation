@@ -15,9 +15,8 @@ const fadeIn = keyframes`
   padding: 1rem;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
   animation: ${fadeIn} 500ms ease-in-out 250ms 1 normal both;
 `;
 
