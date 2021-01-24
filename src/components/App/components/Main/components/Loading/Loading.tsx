@@ -18,7 +18,6 @@ const fadeIn = keyframes`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
   animation: ${fadeIn} 500ms ease-in-out 250ms 1 normal both;
 `;
 
