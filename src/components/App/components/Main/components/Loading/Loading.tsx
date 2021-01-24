@@ -2,15 +2,11 @@ import React from 'react';
 import styled, { keyframes } from "styled-components";
 
 const fadeIn = keyframes`
-  0% {
+  from {
     opacity: 0;
   }
 
-  50% {
-    opacity: 0;
-  }
-
-  100% {
+  to {
     opacty: 1;
   }
 `;
@@ -22,7 +18,8 @@ const fadeIn = keyframes`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${fadeIn} 500ms ease-in-out 1;
+  animation: ${fadeIn} 250ms ease-in-out 1;
+  animation-delay: 250ms;
 `;
 
 export function Loading() {
