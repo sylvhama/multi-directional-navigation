@@ -19,7 +19,7 @@ const fadeIn = keyframes`
   justify-content: center;
   align-items: center;
   opacity: 0;
-  animation: ${fadeIn} 250ms ease-in-out 250ms 1 normal forwards;
+  animation: ${fadeIn} 500ms ease-in-out 250ms 1 normal both;
 `;
 
 export function Loading() {
